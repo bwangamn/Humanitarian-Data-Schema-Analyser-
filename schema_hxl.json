@@ -1,0 +1,83 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Humanitarian Dataset Schema (HXL-CSV)",
+    "type": "object",
+    "properties": {
+        "beneficiary_id": {
+            "type": "string",
+            "x-hxl-tag": "#sub-id",
+            "examples": [
+                "B001",
+                "B002",
+                "B003"
+            ]
+        },
+        "name": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "x-hxl-tag": "#name",
+            "examples": [
+                "John Banda",
+                "Mary Phiri",
+                "Peter Mwale"
+            ]
+        },
+        "age": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "x-hxl-tag": "#age",
+            "examples": [
+                "34",
+                "28",
+                "45"
+            ]
+        },
+        "gender": {
+            "type": "string",
+            "x-hxl-tag": "#sex",
+            "examples": [
+                "Male",
+                "Female"
+            ]
+        },
+        "country": {
+            "type": "string",
+            "x-hxl-tag": "#country",
+            "examples": [
+                "Zambia",
+                "Malawi",
+                "Zimbabwe"
+            ]
+        },
+        "household_size": {
+            "type": "string",
+            "x-hxl-tag": "#household",
+            "examples": [
+                "5",
+                "4",
+                "7"
+            ]
+        },
+        "registration_date": {
+            "type": "string",
+            "format": "date",
+            "x-hxl-tag": "#date",
+            "examples": [
+                "2026-01-10",
+                "2026-01-11",
+                "2026-01-12"
+            ]
+        }
+    },
+    "required": [
+        "beneficiary_id",
+        "gender",
+        "country",
+        "household_size",
+        "registration_date"
+    ]
+}

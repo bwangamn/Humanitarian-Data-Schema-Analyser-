@@ -1,0 +1,68 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Humanitarian Dataset Schema (JSON)",
+    "type": "object",
+    "properties": {
+        "activity_id": {
+            "type": "string",
+            "examples": [
+                "ACT-101",
+                "ACT-102",
+                "ACT-103"
+            ]
+        },
+        "title": {
+            "type": "string",
+            "examples": [
+                "Clean Water Distribution",
+                "Emergency Shelter Provision",
+                "Mobile Health Clinic Support"
+            ]
+        },
+        "sector": {
+            "type": "string",
+            "examples": [
+                "WASH",
+                "Shelter",
+                "Health"
+            ]
+        },
+        "budget": {
+            "type": "integer",
+            "minimum": 50000.0,
+            "maximum": 120000.0,
+            "examples": [
+                50000.0,
+                120000.0,
+                75000.0
+            ]
+        },
+        "beneficiaries": {
+            "type": "integer",
+            "minimum": 450.0,
+            "maximum": 3000.0,
+            "examples": [
+                1200,
+                450,
+                3000
+            ]
+        },
+        "active": {
+            "type": "boolean",
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "examples": [
+                true,
+                false
+            ]
+        }
+    },
+    "required": [
+        "activity_id",
+        "title",
+        "sector",
+        "budget",
+        "beneficiaries",
+        "active"
+    ]
+}

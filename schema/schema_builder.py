@@ -1,44 +1,53 @@
-import pandas as pd
+from typing import Dict, Any
+from schema.unified_model import UnifiedSchema
 
 
 class SchemaBuilder:
-    """Builds a JSON Schema representation from a DataFrame."""
+    """Builds a standardized JSON Schema (Draft 2020-12) from a UnifiedSchema."""
 
-    def __init__(self, df: pd.DataFrame):
-        self.df = df
+    def __init__(self, unified_schema: UnifiedSchema):
+        self.unified_schema = unified_schema
 
-    def _map_type(self, dtype) -> str:
-        """Map Pandas data types to JSON Schema types."""
+    def build(self) -> Dict[str, Any]:
+        """Generate a JSON Schema representation."""
+        properties: Dict[str, Any] = {}
+        required_fields = []
 
-        if pd.api.types.is_integer_dtype(dtype):
-            return "integer"
+        for col_name, col in self.unified_schema.columns.items():
+            # Support nullable types
+            if col.missing_count > 0:
+                col_type = [col.inferred_type, "null"]
+            else:
+                col_type = col.inferred_type
+                required_fields.append(col_name)
 
-        if pd.api.types.is_float_dtype(dtype):
-            return "number"
+            prop_def: Dict[str, Any] = {"type": col_type}
 
-        if pd.api.types.is_bool_dtype(dtype):
-            return "boolean"
+            if col.is_date and col.date_format:
+                prop_def["format"] = col.date_format
 
-        return "string"
+            if col.hxl_tag:
+                prop_def["x-hxl-tag"] = col.hxl_tag
 
-    def build(self) -> dict:
-        """Generate a JSON Schema."""
+            if col.min_value is not None:
+                prop_def["minimum"] = col.min_value
 
-        properties = {}
+            if col.max_value is not None:
+                prop_def["maximum"] = col.max_value
 
-        for column in self.df.columns:
+            if col.sample_values:
+                prop_def["examples"] = col.sample_values
 
-            properties[column] = {
-                "type": self._map_type(
-                    self.df[column].dtype
-                )
-            }
+            properties[col_name] = prop_def
 
-        schema = {
+        schema: Dict[str, Any] = {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
-            "title": "Humanitarian Dataset Schema",
+            "title": f"Humanitarian Dataset Schema ({self.unified_schema.format_name})",
             "type": "object",
             "properties": properties
         }
+
+        if required_fields:
+            schema["required"] = required_fields
 
         return schema

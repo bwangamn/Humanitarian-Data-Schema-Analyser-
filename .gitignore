@@ -1,5 +1,6 @@
 # Python virtual environment
 humanitarian_env/
+Final Year Project Humanitarian Data Schema Analyser/
 .venv/
 venv/
 
@@ -22,5 +23,6 @@ build/
 dist/
 *.egg-info/
 
-# Generated reports
+# Generated outputs
 *.html
+*_schema.json

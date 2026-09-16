@@ -1,0 +1,26 @@
+[
+    {
+        "activity_id": "ACT-101",
+        "title": "Clean Water Distribution",
+        "sector": "WASH",
+        "budget": 50000.0,
+        "beneficiaries": 1200,
+        "active": true
+    },
+    {
+        "activity_id": "ACT-102",
+        "title": "Emergency Shelter Provision",
+        "sector": "Shelter",
+        "budget": 120000.0,
+        "beneficiaries": 450,
+        "active": true
+    },
+    {
+        "activity_id": "ACT-103",
+        "title": "Mobile Health Clinic Support",
+        "sector": "Health",
+        "budget": 75000.0,
+        "beneficiaries": 3000,
+        "active": false
+    }
+]

@@ -1,0 +1,41 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Humanitarian Dataset Schema (XML (IATI))",
+    "type": "object",
+    "properties": {
+        "iati-identifier": {
+            "type": "string",
+            "examples": [
+                "ZM-NGO-001",
+                "ZM-NGO-002"
+            ]
+        },
+        "title": {
+            "type": "string",
+            "examples": [
+                "Nutrition Intervention Program",
+                "Child Protection and Education"
+            ]
+        },
+        "status": {
+            "type": "string",
+            "examples": [
+                "2",
+                "1"
+            ]
+        },
+        "budget": {
+            "type": "string",
+            "examples": [
+                "85000",
+                "62000"
+            ]
+        }
+    },
+    "required": [
+        "iati-identifier",
+        "title",
+        "status",
+        "budget"
+    ]
+}
