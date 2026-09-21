@@ -32,6 +32,17 @@ class DataProfiler:
         if pd.api.types.is_bool_dtype(dtype):
             return "boolean", False, None
 
+        # Check if object/string series contains numeric integer or float values
+        if pd.api.types.is_object_dtype(dtype) or dtype == object:
+            try:
+                num_series = pd.to_numeric(non_null, errors='coerce')
+                if num_series.notna().all() and not num_series.empty:
+                    if (num_series % 1 == 0).all():
+                        return "integer", False, None
+                    return "number", False, None
+            except Exception:
+                pass
+
         # Check date string patterns
         if pd.api.types.is_datetime64_any_dtype(dtype):
             return "string", True, "date-time"

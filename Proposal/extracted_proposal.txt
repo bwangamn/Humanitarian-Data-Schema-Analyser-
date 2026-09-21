@@ -1,0 +1,391 @@
+
+
+
+
+THE UNIVERSITY OF ZAMBIA
+SCHOOL OF NATURAL AND APPLIED SCIENCES DEPARTMENT OF COMPUTING AND INFORMATICS
+Final Year Project Proposal
+Academic Year 2026
+Humanitarian Data Schema Analyzer: A Unified Tool for Automated Schema Profiling and Standardisation Across Heterogeneous Humanitarian Data Formats
+
+Student Name(s): Bwanga Nyirenda (2022081501)
+Supervisor:Mr Mofya Phiri
+Department: Computer Science, School of Natural And Applied Sciences
+Date of Submission: 20th March 2026
+
+
+1. Introduction
+Humanitarian organisations operate in data-intensive environments where accurate, well-structured, and interoperable data is critical for decision-making, coordination, and resource allocation .These organisations collect and manage data using a wide range of tools and formats, including XLSForm (used in ODK and KoBoToolbox), XML-based standards such as XForms and IATI ,HXL-tagged CSV files, and custom JSON or CSV exports from operational systems. While these formats enable flexibility, they introduce significant challenges in data integration and analysis due to inconsistencies in structure, naming conventions, and data types (Rahm & Bernstein, 2001).
+Before any advanced data operations such as Federated Learning or cross-organisational analytics can be performed, it is necessary to understand and standardise the structure of datasets. Currently, this process is largely manual, requiring data engineers to inspect schemas, identify relationships, infer types, and document inconsistencies. This approach is time-consuming, error-prone, and does not scale effectively when working with multiple organisations and large datasets (Do & Rahm,2000).
+The Humanitarian Data Schema Analyzer project proposes the development of a Python-based tool that automates the analysis and profiling of diverse data schemas (Abedjan, 2019; Alrehamy & Walker, 2018). The system will parse multiple humanitarian data formats, extract structural metadata, perform data profiling, and generate standardised outputs such as JSON Schema and human-readable reports. By automating schema understanding, the tool will reduce manual effort, improve data quality, and enable interoperability across systems.
+1.1Problem Statement
+Humanitarian organisations face significant challenges in analysing and integrating data due to the diversity of formats and lack of standardisation. Data collected through platforms such as ODK, KoBoToolbox, and IATI often differs in structure, hierarchy, and semantics, making it difficult to combine datasets or perform unified analysis.
+Currently, schema analysis is performed manually, requiring technical expertise and considerable time. This leads to several issues. First, the process does not scale when dealing with multiple organisations or large datasets. Second, manual analysis introduces inconsistencies and errors in schema interpretation. Third, the lack of automated tools delays downstream processes such as data integration, validation, and machine learning.
+Additionally, without proper profiling, data quality issues such as missing values, inconsistent types, and anomalies often go undetected until later stages, increasing the cost of correction. There is therefore a need for an automated system that can analyse, profile, and standardise schemas across multiple humanitarian data formats efficiently and reliably.
+1.2Project Aim
+Aim: To design and develop a Python-based tool that automatically analyses, profiles, and standardises data schemas from multiple humanitarian data formats to support efficient data integration and quality assessment.
+1.3Objectives
+Objectives:
+To analyse the structural characteristics of common humanitarian data formats including XLSForm, XML (XForms and IATI), CSV, JSON, and HXL.
+To implement parsers for at least four data formats capable of extracting field names, data types, and structural constraints from heterogeneous datasets. 
+To design a unified internal schema representation that standardises metadata across different formats.
+To generate standardised outputs including JSON Schema documents and human readable HTML reports.
+To implement a command-line interface (CLI) for integrating the tool into data pipelines and automated data-processing workflows.
+To evaluate the system's parsing accuracy, profiling completeness, and performance against the criteria in Section 3.3
+To validate the system using real-world humanitarian datasets and document findings.
+1.4Scope of the Project
+In Scope:
+Parsing and analysing CSV, JSON, XML (XForms/IATI), and XLSForm datasets.
+Data profiling using statistical and pattern-based techniques.
+Development of a unified schema model representing structure and metadata.
+Generation of JSON Schema and HTML reports.
+CLI-based interaction mainly for technical users (e.g. Data Analysts, Data engineers etc).
+Testing and validation using real humanitarian datasets(https://data.humdata.org ).
+Out of Scope:
+Full implementation of Federated Learning systems.
+Real-time data streaming or distributed systems.
+Integration with live humanitarian platforms (e.g., KoBoToolbox APIs).
+Development of graphical user interfaces (GUI).
+Data collection or field deployment.
+2. Literature Overview
+2.1 Data Heterogeneity in Humanitarian Systems
+Humanitarian data ecosystems are characterised by significant heterogeneity due to the wide range of tools and standards used for data collection and reporting. Platforms such as Open Data Kit (ODK), KoboToolbox, the International Aid Transparency Initiative (IATI), and the Humanitarian Data Exchange (HDX) generate data in formats including XLSForm, XML, JSON, and CSV, each with distinct structural and semantic properties. This diversity creates challenges in data integration, interoperability, and analysis across organisations. As noted by Keßler and Hendrix (2015), humanitarian organisations frequently exchange data using incompatible structures and semantics, motivating the development of common standards such as the Humanitarian Exchange Language (HXL) to improve interoperability.
+HXL provides a lightweight semantic tagging standard that enables datasets from different humanitarian actors to be consistently described without requiring major changes to existing data collection processes (Keßler & Hendrix, 2015). Similarly, the International Aid Transparency Initiative (IATI) defines a standardised XML structure, schemas, codelists, and rulesets for publishing development and humanitarian activity information (International Aid Transparency Initiative [IATI], 2018). Within the ODK ecosystem, the ODK XForms Specification provides a common XML-based form description standard defining elements such as data instances, bindings, data types, and form controls (Open Data Kit, 2019). These standards provide greater consistency while still introducing different structural and semantic requirements that must be understood when integrating data from multiple humanitarian systems.
+Rahm and Bernstein (2001) identify schema heterogeneity as one of the primary barriers to effective data integration, noting that differences in structure, naming conventions, and data representation require complex mapping and transformation processes. In humanitarian contexts, these challenges are amplified by the coexistence of multiple standards and independently developed data collection tools. Consequently, understanding and harmonising schemas becomes a prerequisite for collaborative data analysis and effective humanitarian information management.
+2.2 Schema Matching and Data Integration
+Schema matching is a fundamental process in data integration, involving the identification of correspondences between elements of different data schemas. According to Rahm and Bernstein (2001), schema matching techniques range from manual approaches to semi-automated and fully automated methods that leverage structural, syntactic, and semantic similarities.
+Do and Rahm (2000) further highlight that manual schema analysis is time-consuming and prone to inconsistencies, particularly when dealing with large and complex datasets. Recent approaches, such as those proposed by Amghar et al. (2023), emphasise automated schema integration techniques that reduce human intervention and improve scalability in big data environments. These studies underscore the importance of developing automated tools capable of analysing and standardising schemas, which directly aligns with the objectives of the Humanitarian Data Schema Analyzer.
+2.3 Data Profiling and Data Quality Assessment
+Data profiling is a critical step in understanding the structure, content, and quality of datasets. It involves analysing data to generate statistics, detect anomalies, and infer data types. Abedjan (2019) defines data profiling as a foundational process in data engineering that enables better decision-making by providing insights into data characteristics.
+In the context of humanitarian data, profiling is particularly important due to frequent issues such as missing values, inconsistent formats, and data entry errors. Automated profiling tools can identify these issues early in the data pipeline, reducing the cost and effort required for data cleaning and improving overall data quality. The integration of data profiling capabilities into schema analysis tools enhances their usefulness by not only describing structure but also evaluating the reliability of the data itself.
+2.4 JSON Schema and Data Standardisation
+JSON Schema has emerged as a widely adopted standard for defining and validating the structure of JSON data. It provides a formal specification for describing data types, constraints, and relationships, enabling automated validation and interoperability between systems.
+Attouche et al. (2023) highlight the importance of JSON Schema in modern data systems, particularly in ensuring consistency and correctness in data exchange. Similarly, Habib et al. (2019) emphasise its role in enforcing type safety and enabling automated validation processes. By generating JSON Schema outputs, the proposed system will provide a standardised representation of heterogeneous data formats, facilitating integration and validation across different platforms
+2.5 Automated Data Integration Tools
+Recent advancements in data engineering have led to the development of tools that automate schema analysis and data integration. Alrehamy and Walker (2018) introduced SemLinker, a system designed to automate data integration processes for non-expert users, demonstrating the potential of intelligent tools in simplifying complex data workflows.
+More recent research by Flores et al. (2025) explores techniques for enhancing data discovery through contextual filtering, further improving the efficiency of data integration systems. These approaches highlight the growing importance of automation in handling large-scale, heterogeneous datasets. The Humanitarian Data Schema Analyzer builds on these concepts by focusing specifically on schema understanding and profiling as a foundational step in automated data integration.
+2.6 Machine Learning Approaches to Schema Matching 
+Emerging research has explored the use of machine learning techniques to improve schema matching accuracy. Koutras et al. (2020) introduced the Valentine framework, which evaluates multiple schema matching techniques to improve dataset discovery. Similarly, Shraga and Gal (2021) proposed a deep learning-based approach that incorporates data quality awareness into schema matching processes.
+While the current project does not implement machine learning, these studies provide insight into future directions and highlight the potential for extending the proposed system with intelligent matching capabilities.
+3. Proposed Methodology
+The project will follow an Agile development approach with iterative prototyping and testing. Within this process, development will be organised into two-week sprints, allowing for continuous refinement based on feedback and evolving requirements.
+The project will be divided into 10 structured phases over 36 weeks, ensuring sufficient time for development, evaluation, documentation, and final presentation.
+Phase 0: Proposal & Planning (Weeks 1–4)
+Project proposal development 
+Literature review initiation 
+Initial presentation and approval 
+Phase 1: Format Analysis (Weeks 5–8)
+Study humanitarian data formats (CSV, JSON, XML, XLSForm, HXL, IATI) 
+Identify structural patterns and inconsistencies 
+Define parsing requirements 
+Phase 2: Parser Development (Weeks 9–14)
+Develop modular parsers for each format 
+Handle format-specific challenges (e.g., XML nesting, CSV inconsistencies) 
+Extract schema metadata (fields, types, constraints) 
+
+Phase 3: Profiling Engine Development (Weeks 15–18)
+Implement statistical profiling using pandas 
+Detect anomalies (missing values, type inconsistencies, outliers) 
+Generate field-level summaries 
+Phase 4: Schema Representation Design (Weeks 19–22)
+Design unified internal schema model 
+Map heterogeneous formats into standard representation 
+Ensure compatibility across all parsers 
+Phase 5: Output Generation (Weeks 23–26)
+Generate JSON Schema outputs 
+Develop human-readable HTML reports 
+Ensure output consistency and correctness 
+
+Phase 6: CLI Development & Packaging (Weeks 27–28)
+Build CLI using Typer 
+Add command options and argument handling 
+Prepare project for packaging and distribution 
+Phase 7: Testing & Validation (Weeks 29–30)
+Test system with real humanitarian datasets (e.g., HDX) 
+Evaluate using defined metrics (accuracy, coverage, performance) 
+Fix bugs and improve reliability 
+Phase 8: Report Writing (Weeks 31–32)
+Write full project report (methodology, implementation, results) 
+Document system architecture and evaluation findings 
+Phase 9: Review & Refinement (Weeks 33–34)
+Revise report based on feedback 
+Improve system performance and documentation 
+Finalise deliverables 
+Phase 10: Presentation Preparation (Week 35-36)
+Prepare slides and demonstration 
+Rehearse final presentation 
+
+
+3.1Tools and Technologies
+Table 1.0: Tools and Technologies for Humanitarian Data Schema Analyser.
+Category
+Technology
+Description
+Purpose
+Language
+Python 3.13.2
+
+
+A high-level programming language known for its simplicity and extensive ecosystem
+
+Core development of the entire system
+Data Processing
+pandas
+A powerful data analysis library for structured data processing
+Used for data profiling, statistical analysis, and anomaly detection
+Excel parsing
+openpyxl
+A Python library for reading and writing Excel files
+Used to parse XLSForm datasets
+CLI
+Typer
+A modern Python library for building command-line interfaces
+Used to implement the CLI for user interaction
+Validation
+jsonschema
+A library for validating JSON data against schema definitions
+
+
+Used to validate generated JSON Schema outputs
+
+Testing
+pytest
+
+
+A testing framework for writing and executing unit tests
+
+Ensures correctness and reliability of system components
+Documentation
+Sphinx
+
+
+A documentation generation tool
+
+
+
+Used to create structured technical documentation
+
+Version Control
+Git/Github
+Version control and collaboration platform
+Used for code management and project tracking
+
+3.2Ethical and Legal Considerations
+Data privacy & Minimal Exposure: The tool will exclusively process publicly available, synthetic, or rigorously anonymised datasets. To ensure the safety of vulnerable populations represented in humanitarian data, the system will not attempt to re-identify anonymised records and will actively discard any inadvertent Personally Identifiable Information (PII) it encounters during the parsing phase.
+User consent & Data Minimization: The architecture is designed to process schema and metadata rather than retaining the underlying raw data. By ensuring no sensitive personal data is stored, cached, or persistently processed, the project mitigates the risk of unauthorized access to consent-bound information.
+Security & Data Protection Frameworks: The tool's operational workflows will adhere to established data protection principles (such as GDPR and the UN Development Group's data privacy guidelines). Even when processing local files, memory management protocols will ensure that temporary data buffers are securely cleared after the schema analysis and profiling steps are complete.
+Intellectual Property & Accessibility: To maximize impact within the resource-constrained humanitarian sector, the tool will be released under a permissive open-source license (such as MIT or Apache 2.0). This ensures clear intellectual property boundaries, allows NGOs to freely integrate the tool into their proprietary systems, and encourages collaborative contributions from the global open-source community.
+
+
+
+
+
+
+
+3.3         Evaluation Criteria
+The effectiveness of the Humanitarian Data Schema Analyzer will be evaluated using measurable and objective criteria to ensure the system meets its intended goals. The following metrics will be used:
+
+Criterion
+Description
+Measurement Method
+Target
+Parsing Accuracy
+Ability of the system to correctly extract elements from input datasets
+Compare extracted schema against manually verified ground truth datasets
+At least 90% accuracy
+Schema Coverage
+Extent to which the dataset structure is captured in the unified schema model
+Ratio of detected fields to total fields in dataset
+At least 95% coverage
+Profiling Completeness
+Degree to which profiling metrics are generated for each field
+Check presence of statistics (null count, data type, distribution) per field
+100% of fields profiled
+Schema Validation
+Correctness of generated JSON Schema outputs
+Validate using jsonschema library
+100% valid schemas
+Performance Efficiency
+
+
+Time taken to process datasets of varying sizes
+
+Measure execution time for datasets (e.g., 5MB, 10MB, 50MB)
+≤ 5 seconds for 10MB dataset
+Report Quality
+Clarity and usability of generated HTML reports
+User evaluation and completeness checklist
+Fully readable and structured reports
+CLI Usability
+Reliability and correctness of command-line interface operations
+Number of successful command executions vs failures
+≥ 95% success rate
+
+
+3.4 System Diagrams
+This section presents the visual representations of the system architecture, data flow, and internal component structure of the Humanitarian Data Schema Analyzer. These diagrams provide a clear understanding of how data is processed, how system components interact, and how outputs are generated.
+
+
+Figure 1: System Architecture Diagram
+The system architecture diagram illustrates the overall structure of the proposed tool. Input datasets in various formats, including CSV, JSON, XML, XLSForm are first processed by specialised format parsers. These parsers extract structural metadata, which is then transformed into a unified schema representation. The profiling engine operates on this standardised schema to perform statistical analysis, type inference, and anomaly detection. Finally, the processed data is passed to the output generator, which produces JSON Schema files and human-readable HTML reports. The entire system is controlled through a command-line interface (CLI), enabling efficient user interaction and integration into automated workflows.
+
+
+
+
+Figure 2: Data Flow Diagram (DFD)
+The data flow diagram illustrates how data moves through the system from input to output. The process begins with the user providing dataset files as input. These datasets are passed through the parsing stage, where their structure is analysed and schema information is extracted. The extracted schema is then processed by the profiling module, which generates statistical summaries and identifies potential data quality issues. The final stage involves generating outputs in the form of JSON Schema documents and HTML reports. This diagram highlights the sequential transformation of data and the key processing stages within the system.
+
+
+
+Figure 3: Component Diagram
+The component diagram provides a detailed view of the internal structure of the system and the interaction between its modules. The CLI module serves as the entry point, receiving user commands and passing them to the controller or orchestrator. The controller coordinates the execution of different parser modules, including CSV, JSON, XML, and XLSForm parsers. These parsers extract schema information and pass it to the unified schema representation module, which standardises the data structure. The profiling module then analyses the standardised schema using statistical techniques. Finally, the output generator produces JSON Schema files and HTML reports. This modular design ensures scalability, maintainability, and ease of extension.
+
+
+3.5 AI-Assisted Development Disclosure
+This project may utilize AI-assisted tools such as code suggestion systems and language models to support development activities including code generation, debugging, and documentation drafting. All outputs generated using such tools will be critically reviewed, tested, and validated by the author to ensure correctness, originality, and compliance with academic standards. The final system design, implementation, and evaluation remain the sole responsibility of the student.
+
+4. Expected Outcomes
+The project will deliver a comprehensive suite of utilities designed to streamline humanitarian data operations. The specific deliverables include:
+A Functional Python-Based Schema Analysis Tool: The core deliverable is a robust, modular Python application. It will be built using modern, maintainable coding standards, ensuring it is lightweight, highly performant, and easily extensible by future developers.
+Specialized Humanitarian Data Parsers: A collection of ingestion modules tailored for formats frequently encountered in crisis response and development sectors. This includes standard formats (CSV, JSON, Excel, XML) as well as specific humanitarian exports (e.g., KoboToolbox data, HXL-tagged datasets, and IATI standard files).
+Advanced Data Profiling Engine: An analytical component that goes beyond basic type-checking. It will perform statistical profiling to infer data types, calculate distributions, and detect anomalies such as outliers, inconsistent formatting, or missing values that frequently plague field-collected data.
+Unified Schema Representation Model: An internal, standardized data structure that maps diverse, chaotic input datasets into a single, normalized format. This allows the profiling engine to treat all data uniformly, regardless of its original source format.
+Multi-Format Report Generation: * JSON Schema: For machine-to-machine integration, allowing the tool's output to be consumed by other automated data pipelines or validation tools.
+HTML Reports: Interactive, human-readable dashboards that provide data officers with visual summaries of data health, schema structures, and identified anomalies.
+Command-Line Interface (CLI): A fully featured CLI equipped with customizable arguments and flags. This ensures the tool can be run manually by data scientists or seamlessly embedded into automated CI/CD pipelines, cron jobs, and data ingestion workflows.
+Comprehensive Documentation: A complete knowledge base, including a quick-start guide, detailed API documentation, architectural overviews, and a final project report detailing the methodology, challenges overcome, and the tool's impact on humanitarian data readiness.
+
+4.1 Dissemination and Publication Plan
+To maximize the impact and usability of the developed system, the following dissemination strategies will be adopted:
+The tool will be published as an open-source project on GitHub for public access and collaboration 
+The package will be distributed via PyPI to allow easy installation and integration 
+Documentation will be made publicly available to support adoption by humanitarian organizations 
+The project findings may be submitted as an academic paper or technical report 
+The tool may be shared with NGOs and data practitioners for real-world use and feedback
+
+
+
+
+
+5. Project Timeline
+This section provides the phase, duration activities and deliverables of the project across a 36 week period.
+
+Phase
+Duration
+Activities
+Deliverables
+Proposal & Planning
+Week 1-4
+Proposal writing, approval
+Approved proposal
+Format Analysis
+Week 5-8
+Study CSV, JSON, XML, XLS Formats
+Format analysis report
+Parser Development
+Week 9-14
+Build parsers for formats
+
+Functional parsers
+
+Profiling Engine
+Week 15-18
+Implement profiling logic
+Profiling module
+Schema Representation
+Week 19-22
+Unified schema design
+Schema model
+Output Generation
+Week 23-26
+
+
+JSON and HTML reports
+
+Output modules
+CLI Development
+Week 27-28
+Build CLI interface
+Working CLI
+Testing & Validation
+Week 29-30
+Test with real datasets
+Test results
+Report Writing
+Weeks 31-32
+Draft full report
+Draft thesis
+Review & Refinement
+Weeks 33-34
+Corrections and improvements
+
+
+
+Final report
+Presentation Prep
+Weeks 35-36
+Slides and demo preparation
+Final presentation
+Table 2.0 representing the project timeline
+6. Risk Analysis
+This section provides the risks to be faced with there likelihood, impact and mitigation throughout the project.
+Risk
+Description
+
+
+Likelihood
+
+Impact
+Mitigation
+ Complex XML Structures
+
+
+XML formats like IATI and XLS Forms have deep nesting, namespaces, and inconsistent schemas
+
+High
+High
+Use libraries like lxml to build modular parsers, and test early in timeline with real datasets
+Data inconsistency
+Datasets may contain missing values, inconsistent types, or naming variations across formats
+High
+High
+Implement robust validation and flexible schema inference logic
+Tool Constraints
+
+Learning curve of libraries such as pandas and jsonschema
+Medium
+Medium
+Conduct early spike tasks to prototype pandas profiling and JSON Schema generation using one representative sample dataset for each. Evaluate the results by a defined decision date and select alternative libraries if the required functionality or compatibility is inadequate.
+Time Complexity
+Limited time to complete all components
+Medium
+High
+By following a well-structured timeline and prioritizing core features to eventually produce a Minimal Viable Product (MVP)
+Limited/Varied Datasets
+Difficulty accessing sufficient and diverse real-world humanitarian datasets for development and system testing.
+Medium
+Medium
+Use publicly available datasets from HDX and similar humanitarian data platforms, supplemented by carefully designed mock datasets representing the supported formats to ensure all major use cases can be tested.
+Table 3.0 Risk Analysis and Mitigation Strategies of the development of the schema analyser
+
+7. References
+1. Abedjan, Z. (2019). Data profiling. In Encyclopaedia of Big Data Technologies. Springer.
+2. Alrehamy, H., & Walker, C. (2018). SemLinker: Automating big data integration for casual users. Journal of Big Data, 5(1), 1–20.
+3. Amghar, S., Cherdal, S., & Mouline, S. (2023). A schema integration approach for big data analysis. Ingénierie des Systèmes d’Information, 28(2), 343–350.
+4. Attouche, L., et al. (2023). Validation of modern JSON schema: Formalization and complexity. arXiv preprint arXiv:2307.10034.
+5. Do, H. H., & Rahm, E. (2000). Data cleaning: Problems and current approaches. IEEE Data Engineering Bulletin, 23(4), 3–13.
+6. Flores, J., Nadal, S., & Romero, O. (2025). Enhancing data discovery with contextual pre-filtering. Journal of Big Data, 12(1), 1–25.
+7. Habib, A., et al. (2019). Type safety with JSON subschema. arXiv preprint arXiv:1911.12651.
+8. Koutras, C., et al. (2020). Valentine: Evaluating matching techniques for dataset discovery. arXiv preprint arXiv:2010.07386.
+9. Rahm, E., & Bernstein, P. A. (2001). A survey of approaches to automatic schema matching. The VLDB Journal, 10(4), 334–350.
+10. Shraga, R., & Gal, A. (2021). PoWareMatch: A quality-aware deep learning approach to improve schema matching. arXiv preprint arXiv:2109.07321.
+11. Keßler, C., & Hendrix, C. (2015). The Humanitarian eXchange Language: Coordinating disaster response with semantic web technologies. Semantic Web, 6(1), 5–21. https://doi.org/10.3233/SW-130130
+12. United Nations Office for the Coordination of Humanitarian Affairs. (2017). The Centre for Humanitarian Data Business Plan. United Nations Office for the Coordination of Humanitarian Affairs.
+13. International Aid Transparency Initiative. (2018). IATI Standard: Version 2.03. International Aid Transparency Initiative. 
+14. Open Data Kit. (2019). ODK XForms Specification: Version 1.0.0. Open Data Kit.
+
+
+Supervisor Approval:
+Name: 
+Signature: 
+Date: 

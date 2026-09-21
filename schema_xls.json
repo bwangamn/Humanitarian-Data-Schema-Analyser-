@@ -1,0 +1,54 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Humanitarian Dataset Schema (XLSForm)",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "examples": [
+                "text",
+                "integer",
+                "decimal"
+            ]
+        },
+        "name": {
+            "type": "string",
+            "examples": [
+                "respondent_name",
+                "age",
+                "household_income"
+            ]
+        },
+        "label": {
+            "type": "string",
+            "examples": [
+                "Full Name of Respondent",
+                "Age in Completed Years",
+                "Monthly Household Income (USD)"
+            ]
+        },
+        "required": {
+            "type": "string",
+            "examples": [
+                "yes",
+                "no"
+            ]
+        },
+        "constraint": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                ". >= 18",
+                ". >= 0"
+            ]
+        }
+    },
+    "required": [
+        "type",
+        "name",
+        "label",
+        "required"
+    ]
+}
