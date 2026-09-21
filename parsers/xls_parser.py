@@ -26,15 +26,24 @@ class XLSParser(BaseParser):
 
             format_name = "XLSForm" if is_xlsform else "Excel"
 
+            metadata = {
+                "file_path": self.file_path,
+                "sheet_name": selected_sheet,
+                "available_sheets": sheet_names,
+                "is_xlsform": is_xlsform
+            }
+
+            if is_xlsform and any(s.lower() == "choices" for s in sheet_names):
+                choices_sheet_name = next(s for s in sheet_names if s.lower() == "choices")
+                choices_df = pd.read_excel(self.file_path, sheet_name=choices_sheet_name)
+                if not choices_df.empty:
+                    metadata["choices_sheet"] = choices_sheet_name
+                    metadata["choices"] = choices_df.to_dict(orient="records")
+
             return ParsedDataset(
                 df=df,
                 format_name=format_name,
-                metadata={
-                    "file_path": self.file_path,
-                    "sheet_name": selected_sheet,
-                    "available_sheets": sheet_names,
-                    "is_xlsform": is_xlsform
-                }
+                metadata=metadata
             )
 
         except Exception as error:

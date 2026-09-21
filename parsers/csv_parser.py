@@ -28,18 +28,18 @@ class CSVParser(BaseParser):
                     break
 
             hxl_tags = {}
-            if has_hxl and hxl_row_idx == 1:
-                # Standard HXL CSV: Row 0 is header, Row 1 is HXL tags
-                raw_df = pd.read_csv(self.file_path, header=0)
-                if not raw_df.empty:
-                    tag_row = raw_df.iloc[0]
-                    for col in raw_df.columns:
-                        val = str(tag_row[col]).strip()
-                        if val.startswith('#'):
-                            hxl_tags[col] = val
-                    df = raw_df.iloc[1:].reset_index(drop=True)
-                else:
-                    df = raw_df
+            if has_hxl and hxl_row_idx >= 0:
+                # Extract HXL tags using header row 0 and tag row hxl_row_idx
+                for col_idx in range(len(preview_df.columns)):
+                    col_name = str(preview_df.iloc[0, col_idx]).strip()
+                    tag_val = str(preview_df.iloc[hxl_row_idx, col_idx]).strip()
+                    if tag_val.startswith('#'):
+                        hxl_tags[col_name] = tag_val
+                
+                # Load df by skipping the HXL tag row (hxl_row_idx) so pandas performs standard dtype inference on data rows
+                df = pd.read_csv(self.file_path, header=0, skiprows=[hxl_row_idx])
+                if df.empty and len(df.columns) == 0:
+                    raise ValueError("The CSV file is empty.")
             else:
                 df = pd.read_csv(self.file_path)
 
