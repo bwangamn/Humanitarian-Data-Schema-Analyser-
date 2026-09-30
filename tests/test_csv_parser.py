@@ -1,5 +1,5 @@
 import pytest
-from parsers.csv_parser import CSVParser
+from humanitarian_schema_analyzer.parsers.csv_parser import CSVParser
 
 
 def test_csv_parser_standard(tmp_path):

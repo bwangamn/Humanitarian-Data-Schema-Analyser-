@@ -1,28 +1,41 @@
-# Python virtual environment
+# Python virtual environments
 humanitarian_env/
-Final Year Project Humanitarian Data Schema Analyser/
 .venv/
 venv/
+env/
+ENV/
 
-# Python cache
+# Python byte-compiled / cache files
 __pycache__/
 *.py[cod]
+*$py.class
 
-# Testing
-.pytest_cache/
-
-# IDE
-.vscode/
-.idea/
-
-# Environment variables
-.env
-
-# Build/package files
+# Packaging & Build output
 build/
 dist/
 *.egg-info/
+*.egg
+.eggs/
 
-# Generated outputs
-*.html
-*_schema.json
+# Testing & Coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+
+# Generated runtime outputs (preserve representative test fixtures in tests/fixtures/)
+report*.html
+schema*.json
+
+# Sphinx documentation build output
+docs/_build/

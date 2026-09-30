@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from parsers.base_parser import BaseParser, ParsedDataset
+from .base_parser import BaseParser, ParsedDataset
 
 
 class XLSParser(BaseParser):

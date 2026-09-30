@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from schema.unified_model import UnifiedSchema
+from .unified_model import UnifiedSchema
 
 
 class SchemaBuilder:

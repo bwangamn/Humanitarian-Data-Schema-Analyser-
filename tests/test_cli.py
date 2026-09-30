@@ -1,5 +1,5 @@
 from typer.testing import CliRunner
-from cli.main import app
+from humanitarian_schema_analyzer.cli.main import app
 
 runner = CliRunner()
 

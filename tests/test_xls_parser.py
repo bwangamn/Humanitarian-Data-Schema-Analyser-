@@ -1,15 +1,14 @@
 import pytest
 import os
 import openpyxl
-from parsers.xls_parser import XLSParser
-from profiling.profiler import DataProfiler
-from schema.schema_builder import SchemaBuilder
+from humanitarian_schema_analyzer.parsers.xls_parser import XLSParser
+from humanitarian_schema_analyzer.profiling.profiler import DataProfiler
+from humanitarian_schema_analyzer.schema.schema_builder import SchemaBuilder
 import jsonschema
 
 
 def test_xls_parser_survey_and_choices():
     """Verify that XLSParser correctly identifies XLSForm survey and choices sheets
-
     and extracts expected field metadata.
     """
     fixture_path = os.path.join("tests", "fixtures", "sample_xlsform.xlsx")
@@ -43,9 +42,23 @@ def test_xls_parser_survey_and_choices():
     assert set(gender_choices) == {"male", "female", "other"}
 
 
+def test_xls_parser_standard_excel():
+    """Verify that XLSParser correctly parses a standard non-XLSForm Excel workbook."""
+    fixture_path = os.path.join("tests", "fixtures", "sample.xlsx")
+    assert os.path.exists(fixture_path), "Standard Excel fixture file not found."
+
+    parser = XLSParser(fixture_path)
+    parsed = parser.parse()
+
+    assert parsed.format_name == "Excel"
+    assert parsed.metadata["is_xlsform"] is False
+    assert len(parsed.df) == 3
+    assert "district" in parsed.df.columns
+
+
 def test_xls_parser_end_to_end_profiling_and_schema():
     """Verify end-to-end profiling and JSON Schema generation for an XLSForm workbook."""
-    fixture_path = os.path.join("data", "sample_xlsform.xlsx")
+    fixture_path = os.path.join("tests", "fixtures", "sample_xlsform.xlsx")
     parsed = XLSParser(fixture_path).parse()
 
     profiler = DataProfiler(parsed)

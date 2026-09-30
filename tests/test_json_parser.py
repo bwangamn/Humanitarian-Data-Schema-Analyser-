@@ -1,5 +1,5 @@
 import pytest
-from parsers.json_parser import JSONParser
+from humanitarian_schema_analyzer.parsers.json_parser import JSONParser
 
 
 def test_json_parser_list(tmp_path):

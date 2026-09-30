@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 from typing import Dict, Any, List
-from parsers.base_parser import ParsedDataset
-from schema.unified_model import UnifiedSchema, ColumnProfile
+from ..parsers.base_parser import ParsedDataset
+from ..schema.unified_model import UnifiedSchema, ColumnProfile
 
 
 class DataProfiler:

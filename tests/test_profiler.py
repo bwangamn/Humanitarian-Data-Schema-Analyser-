@@ -1,6 +1,6 @@
 import pandas as pd
-from parsers.base_parser import ParsedDataset
-from profiling.profiler import DataProfiler
+from humanitarian_schema_analyzer.parsers.base_parser import ParsedDataset
+from humanitarian_schema_analyzer.profiling.profiler import DataProfiler
 
 
 def test_data_profiler():

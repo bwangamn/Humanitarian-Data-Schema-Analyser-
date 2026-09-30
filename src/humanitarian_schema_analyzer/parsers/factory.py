@@ -1,10 +1,10 @@
 import os
 from typing import Optional
-from parsers.base_parser import BaseParser
-from parsers.csv_parser import CSVParser
-from parsers.json_parser import JSONParser
-from parsers.xml_parser import XMLParser
-from parsers.xls_parser import XLSParser
+from .base_parser import BaseParser
+from .csv_parser import CSVParser
+from .json_parser import JSONParser
+from .xml_parser import XMLParser
+from .xls_parser import XLSParser
 
 
 class ParserFactory:

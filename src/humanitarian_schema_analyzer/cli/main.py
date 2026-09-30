@@ -4,13 +4,10 @@ import json
 import typer
 from typing import Optional
 
-# Ensure project root is in Python module search path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from parsers.factory import ParserFactory
-from profiling.profiler import DataProfiler
-from schema.schema_builder import SchemaBuilder
-from reports.html_report import HTMLReportGenerator
+from ..parsers.factory import ParserFactory
+from ..profiling.profiler import DataProfiler
+from ..schema.schema_builder import SchemaBuilder
+from ..reports.html_report import HTMLReportGenerator
 
 app = typer.Typer(
     help="Humanitarian Data Schema Analyser: Unified Schema Profiling and Standardisation CLI."

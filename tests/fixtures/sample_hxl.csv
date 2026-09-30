@@ -1,0 +1,9 @@
+beneficiary_id,name,age,gender,country,household_size,registration_date
+#sub-id,#name,#age,#sex,#country,#household,#date
+B001,John Banda,34,Male,Zambia,5,2026-01-10
+B002,Mary Phiri,28,Female,Zambia,4,2026-01-11
+B003,Peter Mwale,45,Male,Malawi,7,2026-01-12
+B004,Grace Tembo,,Female,Zambia,3,2026-01-13
+B005,David Zulu,31,Male,Zambia,5,2026-01-14
+B006,,26,Female,Zimbabwe,2,2026-01-15
+B007,James Phiri,39,Male,Zambia,6,2026-01-16

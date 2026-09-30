@@ -1,5 +1,5 @@
 import pytest
-from parsers.xml_parser import XMLParser
+from humanitarian_schema_analyzer.parsers.xml_parser import XMLParser
 
 
 def test_xml_parser(tmp_path):

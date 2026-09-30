@@ -1,7 +1,7 @@
 import pytest
 import os
-from parsers.csv_parser import CSVParser
-from profiling.profiler import DataProfiler
+from humanitarian_schema_analyzer.parsers.csv_parser import CSVParser
+from humanitarian_schema_analyzer.profiling.profiler import DataProfiler
 
 
 def test_hxl_vs_csv_type_inference_consistency():
@@ -9,11 +9,16 @@ def test_hxl_vs_csv_type_inference_consistency():
 
     while HXL-CSV retains HXL semantic metadata.
     """
-    csv_path = os.path.join("data", "sample.csv")
-    hxl_path = os.path.join("data", "sample_hxl.csv")
+    csv_path = os.path.join("tests", "fixtures", "sample.csv")
+    if not os.path.exists(csv_path):
+        csv_path = os.path.join("data", "sample.csv")
 
-    assert os.path.exists(csv_path), "sample.csv missing from data/"
-    assert os.path.exists(hxl_path), "sample_hxl.csv missing from data/"
+    hxl_path = os.path.join("tests", "fixtures", "sample_hxl.csv")
+    if not os.path.exists(hxl_path):
+        hxl_path = os.path.join("data", "sample_hxl.csv")
+
+    assert os.path.exists(csv_path), "sample.csv missing from fixtures or data/"
+    assert os.path.exists(hxl_path), "sample_hxl.csv missing from fixtures or data/"
 
     parsed_csv = CSVParser(csv_path).parse()
     profile_csv = DataProfiler(parsed_csv).profile()

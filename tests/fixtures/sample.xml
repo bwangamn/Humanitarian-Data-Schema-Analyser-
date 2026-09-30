@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iati-activities version="2.03">
+    <iati-activity>
+        <iati-identifier>ZM-NGO-001</iati-identifier>
+        <title>Nutrition Intervention Program</title>
+        <status>2</status>
+        <budget>85000</budget>
+    </iati-activity>
+    <iati-activity>
+        <iati-identifier>ZM-NGO-002</iati-identifier>
+        <title>Child Protection and Education</title>
+        <status>1</status>
+        <budget>62000</budget>
+    </iati-activity>
+</iati-activities>

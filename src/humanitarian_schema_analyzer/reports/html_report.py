@@ -1,7 +1,7 @@
 import json
 import os
 from typing import Dict, Any
-from schema.unified_model import UnifiedSchema
+from ..schema.unified_model import UnifiedSchema
 
 
 class HTMLReportGenerator:

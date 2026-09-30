@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "humanitarian-data-schema-analyzer"
+version = "0.1.0"
+description = "Unified Schema Profiling, Parsing, and Standardisation Engine for Humanitarian Datasets (CSV, HXL, JSON, XML, XLSForm)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "Bwanga Nyirenda"}
+]
+keywords = [
+    "humanitarian",
+    "hxl",
+    "data-quality",
+    "schema-generator",
+    "json-schema",
+    "data-engineering",
+    "xlsform"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+dependencies = [
+    "typer>=0.12,<1.0",
+    "pandas>=2.0,<3.0",
+    "openpyxl>=3.1,<4.0",
+    "jsonschema>=4.0,<5.0",
+    "lxml>=5.0,<6.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<10.0",
+    "pytest-cov>=4.0",
+    "build>=1.0",
+    "twine>=5.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/bwangamn/Humanitarian-Data-Schema-Analyser-"
+Repository = "https://github.com/bwangamn/Humanitarian-Data-Schema-Analyser-"
+"Bug Tracker" = "https://github.com/bwangamn/Humanitarian-Data-Schema-Analyser-/issues"
+
+[project.scripts]
+hds-analyzer = "humanitarian_schema_analyzer.cli.main:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,8 +1,8 @@
 import pandas as pd
 import jsonschema
-from parsers.base_parser import ParsedDataset
-from profiling.profiler import DataProfiler
-from schema.schema_builder import SchemaBuilder
+from humanitarian_schema_analyzer.parsers.base_parser import ParsedDataset
+from humanitarian_schema_analyzer.profiling.profiler import DataProfiler
+from humanitarian_schema_analyzer.schema.schema_builder import SchemaBuilder
 
 
 def test_schema_builder_validation():
