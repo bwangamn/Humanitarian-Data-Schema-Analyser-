@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "humanitarian-data-schema-analyzer"
-version = "0.1.0"
+version = "0.1.1"
 description = "Unified Schema Profiling, Parsing, and Standardisation Engine for Humanitarian Datasets (CSV, HXL, JSON, XML, XLSForm)"
 readme = "README.md"
 requires-python = ">=3.10"
