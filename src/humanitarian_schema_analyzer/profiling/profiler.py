@@ -1,3 +1,16 @@
+"""Statistical and pattern-based profiling engine for humanitarian datasets.
+
+For ordinary CSV/JSON/XML/Excel datasets the profiler performs column-level
+statistical analysis as before.
+
+For XLSForm datasets (``parsed_dataset.metadata["is_xlsform"] is True``) the
+profiler uses a dedicated path that builds ``ColumnProfile`` objects directly
+from the ``xlsform_questions`` metadata extracted by the parser, rather than
+computing statistics over an empty/synthetic DataFrame.  This preserves the
+XLSForm question type, label, requiredness, and constraint expressions in the
+profile without fabricating misleading statistics.
+"""
+
 import pandas as pd
 import numpy as np
 from typing import Dict, Any, List
@@ -59,6 +72,73 @@ class DataProfiler:
         return "string", False, None
 
     def profile(self) -> UnifiedSchema:
+        """Generate unified schema profile with statistical and pattern analysis.
+
+        For XLSForm datasets the profiling is driven by the question metadata
+        in ``parsed_dataset.metadata["xlsform_questions"]`` rather than by
+        statistical analysis of the DataFrame columns.
+        """
+        if self.parsed_dataset.metadata.get("is_xlsform") and \
+                "xlsform_questions" in self.parsed_dataset.metadata:
+            return self._profile_xlsform()
+        return self._profile_tabular()
+
+    # ------------------------------------------------------------------
+    # XLSForm-specific profiling path
+    # ------------------------------------------------------------------
+
+    def _profile_xlsform(self) -> UnifiedSchema:
+        """Build a UnifiedSchema from XLSForm question definitions.
+
+        Each question becomes a ColumnProfile.  Statistical fields that require
+        response data (min/max/mean/std/sample_values) are left as None/empty
+        because the XLSForm is a form definition, not a data table.
+        """
+        questions: List[Dict[str, Any]] = self.parsed_dataset.metadata["xlsform_questions"]
+        columns_profile: Dict[str, ColumnProfile] = {}
+
+        for q in questions:
+            name: str = q["name"]
+            inferred_type: str = q.get("inferred_type", "string")
+            is_date: bool = q.get("is_date", False)
+            date_fmt = q.get("date_format")
+
+            columns_profile[name] = ColumnProfile(
+                name=name,
+                data_type="xlsform",        # sentinel: not a pandas dtype
+                inferred_type=inferred_type,
+                missing_count=0,
+                missing_percentage=0.0,
+                unique_count=0,
+                hxl_tag=None,
+                min_value=None,
+                max_value=None,
+                mean_value=None,
+                std_value=None,
+                is_date=is_date,
+                date_format=date_fmt,
+                sample_values=[],
+                # XLSForm-specific fields
+                xlsform_type=q.get("xlsform_type"),
+                xlsform_label=q.get("label"),
+                xlsform_required=q.get("required"),
+                xlsform_constraint=q.get("constraint"),
+                xlsform_choices=q.get("choices"),
+            )
+
+        return UnifiedSchema(
+            format_name=self.format_name,
+            row_count=0,   # form definition has no response rows
+            column_count=len(columns_profile),
+            columns=columns_profile,
+            metadata=self.parsed_dataset.metadata,
+        )
+
+    # ------------------------------------------------------------------
+    # Standard tabular profiling path (unchanged)
+    # ------------------------------------------------------------------
+
+    def _profile_tabular(self) -> UnifiedSchema:
         """Generate unified schema profile with statistical and pattern analysis."""
         row_count = len(self.df)
         column_count = len(self.df.columns)
