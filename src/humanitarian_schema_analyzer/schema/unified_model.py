@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Union
 
 
 @dataclass
@@ -13,7 +13,7 @@ class ColumnProfile:
     """
     name: str
     data_type: str
-    inferred_type: str
+    inferred_type: Union[str, List[str]]
     missing_count: int
     missing_percentage: float
     unique_count: int
@@ -25,6 +25,10 @@ class ColumnProfile:
     is_date: bool = False
     date_format: Optional[str] = None
     sample_values: List[Any] = field(default_factory=list)
+
+    # Observation metadata: whether string column values appear numeric
+    is_numeric_string: bool = False
+    potential_type: Optional[str] = None
 
     # XLSForm-specific metadata (None for non-XLSForm datasets)
     xlsform_type: Optional[str] = None       # raw XLSForm type string, e.g. "select_one gender_list"

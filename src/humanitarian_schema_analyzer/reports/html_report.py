@@ -204,11 +204,13 @@ class HTMLReportGenerator:
             missing_badge = f'<span class="badge badge-warn">{col.missing_percentage}%</span>' if col.missing_percentage > 0 else f'<span class="badge badge-good">0%</span>'
             samples_str = ", ".join(map(str, col.sample_values)) if col.sample_values else "-"
 
+            type_display = "/".join(col.inferred_type) if isinstance(col.inferred_type, list) else str(col.inferred_type)
+
             html += f"""
                     <tr>
                         <td><strong>{col.name}</strong></td>
                         <td>{hxl_badge}</td>
-                        <td><code>{col.inferred_type}</code></td>
+                        <td><code>{type_display}</code></td>
                         <td>{col.missing_count}</td>
                         <td>{missing_badge}</td>
                         <td>{col.unique_count}</td>
