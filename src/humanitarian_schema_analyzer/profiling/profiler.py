@@ -11,9 +11,10 @@ XLSForm question type, label, requiredness, and constraint expressions in the
 profile without fabricating misleading statistics.
 """
 
-import pandas as pd
-import numpy as np
+import json
 from typing import Dict, Any, List
+import numpy as np
+import pandas as pd
 from ..parsers.base_parser import ParsedDataset
 from ..schema.unified_model import UnifiedSchema, ColumnProfile
 
@@ -32,6 +33,15 @@ class DataProfiler:
         non_null = series.dropna()
         if non_null.empty:
             return "string", False, None
+
+        # Check for complex nested types (dict / list / XMLNode)
+        has_complex = any(isinstance(x, (dict, list)) for x in non_null)
+        if has_complex:
+            if all(isinstance(x, list) for x in non_null):
+                return "array", False, None
+            if all(isinstance(x, dict) for x in non_null):
+                return "object", False, None
+            return "object", False, None
 
         dtype = series.dtype
 
@@ -135,7 +145,7 @@ class DataProfiler:
         )
 
     # ------------------------------------------------------------------
-    # Standard tabular profiling path (unchanged)
+    # Standard tabular profiling path
     # ------------------------------------------------------------------
 
     def _profile_tabular(self) -> UnifiedSchema:
@@ -148,13 +158,34 @@ class DataProfiler:
             series = self.df[column]
             missing_count = int(series.isna().sum())
             missing_pct = round((missing_count / row_count * 100), 2) if row_count > 0 else 0.0
-            unique_count = int(series.nunique(dropna=True))
+
+            # Calculate unique count safely for unhashable types (dicts, lists)
+            try:
+                unique_count = int(series.nunique(dropna=True))
+            except TypeError:
+                try:
+                    unique_count = len({json.dumps(x, sort_keys=True, default=str) for x in series.dropna()})
+                except Exception:
+                    unique_count = len(series.dropna())
 
             inferred_type, is_date, date_fmt = self._infer_type(series)
 
-            # Sample non-null values
-            non_null_vals = series.dropna().unique()
-            samples = [val.item() if hasattr(val, 'item') else val for val in non_null_vals[:3]]
+            # Sample non-null values safely for unhashable types
+            try:
+                non_null_vals = series.dropna().unique()
+            except TypeError:
+                seen_reprs = set()
+                non_null_vals = []
+                for val in series.dropna():
+                    val_repr = repr(val)
+                    if val_repr not in seen_reprs:
+                        seen_reprs.add(val_repr)
+                        non_null_vals.append(val)
+
+            samples = [
+                val.item() if hasattr(val, 'item') and not isinstance(val, (dict, list)) else val
+                for val in non_null_vals[:3]
+            ]
 
             # Numeric metrics
             min_val, max_val, mean_val, std_val = None, None, None, None

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iati-activities version="2.03">
+    <iati-activity>
+        <iati-identifier>XM-DAC-001</iati-identifier>
+        <title>
+            <narrative>Flood response</narrative>
+        </title>
+        <transaction>
+            <value currency="USD">100</value>
+        </transaction>
+        <transaction>
+            <value currency="USD">200</value>
+        </transaction>
+    </iati-activity>
+    <iati-activity>
+        <iati-identifier>XM-DAC-002</iati-identifier>
+        <title>
+            <narrative>Emergency shelter support</narrative>
+        </title>
+        <transaction>
+            <value currency="EUR">500</value>
+        </transaction>
+    </iati-activity>
+</iati-activities>
