@@ -30,6 +30,9 @@ class ColumnProfile:
     is_numeric_string: bool = False
     potential_type: Optional[str] = None
 
+    # Nested schema representation (for complex object / array columns)
+    nested_schema: Optional[Dict[str, Any]] = None
+
     # XLSForm-specific metadata (None for non-XLSForm datasets)
     xlsform_type: Optional[str] = None       # raw XLSForm type string, e.g. "select_one gender_list"
     xlsform_label: Optional[str] = None      # human-readable question label

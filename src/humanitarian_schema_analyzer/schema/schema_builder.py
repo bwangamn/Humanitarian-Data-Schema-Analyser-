@@ -114,21 +114,34 @@ class SchemaBuilder:
         required_fields: List[str] = []
 
         for col_name, col in self.unified_schema.columns.items():
-            # Support nullable types and union types
-            if isinstance(col.inferred_type, list):
+            if getattr(col, "nested_schema", None):
+                prop_def: Dict[str, Any] = dict(col.nested_schema)
                 if col.missing_count > 0:
-                    col_type = list(dict.fromkeys(col.inferred_type + ["null"]))
+                    if "type" in prop_def:
+                        if isinstance(prop_def["type"], list):
+                            prop_def["type"] = list(dict.fromkeys(prop_def["type"] + ["null"]))
+                        else:
+                            prop_def["type"] = [prop_def["type"], "null"]
+                    elif "anyOf" in prop_def:
+                        prop_def["anyOf"].append({"type": "null"})
                 else:
-                    col_type = col.inferred_type
                     required_fields.append(col_name)
             else:
-                if col.missing_count > 0:
-                    col_type = [col.inferred_type, "null"]
+                # Support nullable types and union types
+                if isinstance(col.inferred_type, list):
+                    if col.missing_count > 0:
+                        col_type = list(dict.fromkeys(col.inferred_type + ["null"]))
+                    else:
+                        col_type = col.inferred_type
+                        required_fields.append(col_name)
                 else:
-                    col_type = col.inferred_type
-                    required_fields.append(col_name)
+                    if col.missing_count > 0:
+                        col_type = [col.inferred_type, "null"]
+                    else:
+                        col_type = col.inferred_type
+                        required_fields.append(col_name)
 
-            prop_def: Dict[str, Any] = {"type": col_type}
+                prop_def = {"type": col_type}
 
             if col.is_date and col.date_format:
                 prop_def["format"] = col.date_format

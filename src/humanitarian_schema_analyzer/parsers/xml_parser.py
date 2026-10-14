@@ -154,6 +154,76 @@ def _extract_records(root: ET.Element) -> List[Dict[str, Any]]:
         return [{tag_name: data}]
 
 
+# Known repeatable XML element tags that should always be represented as lists
+KNOWN_REPEATED_TAGS = {"transaction"}
+
+
+def _find_repeated_tags(root: ET.Element, records: List[Dict[str, Any]]) -> set[str]:
+    """Identify tag names that represent repeated elements across the document or dataset.
+
+    An element is considered repeated if:
+    1. It is a known repeatable element (such as IATI <transaction>).
+    2. It appears more than once under any parent element in the XML document tree.
+    3. It is represented as a list in any extracted record.
+    """
+    repeated: set[str] = set(KNOWN_REPEATED_TAGS)
+
+    def scan_tree(elem: ET.Element) -> None:
+        counts: Dict[str, int] = {}
+        for child in elem:
+            tag = _clean_tag(child.tag)
+            counts[tag] = counts.get(tag, 0) + 1
+            scan_tree(child)
+        for tag, count in counts.items():
+            if count > 1:
+                repeated.add(tag)
+
+    scan_tree(root)
+
+    def scan_records(data: Any) -> None:
+        if isinstance(data, dict):
+            for k, v in data.items():
+                if isinstance(v, list):
+                    repeated.add(k)
+                    for item in v:
+                        scan_records(item)
+                elif isinstance(v, dict):
+                    scan_records(v)
+        elif isinstance(data, list):
+            for item in data:
+                scan_records(item)
+
+    for r in records:
+        scan_records(r)
+
+    return repeated
+
+
+def _normalize_record(data: Any, repeated_tags: set[str]) -> Any:
+    """Recursively normalize repeated tags to lists even when only a single occurrence exists.
+
+    Why normalization is necessary:
+    In XML documents, repeated child elements (such as <transaction> in IATI) are parsed as a
+    list when multiple siblings appear within a parent, but as a single object/dict when only
+    one occurrence is present. This structural inconsistency causes schema profilers to infer
+    type 'object' instead of 'array', causing valid records with multiple occurrences to fail
+    validation against the generated schema. Normalizing single occurrences of repeated elements
+    to single-item lists ensures a consistent schema representation (type: 'array') across all
+    records in the dataset.
+    """
+    if isinstance(data, dict):
+        for k in list(data.keys()):
+            val = data[k]
+            if isinstance(val, (dict, list)):
+                data[k] = _normalize_record(val, repeated_tags)
+            if k in repeated_tags and not isinstance(data[k], list):
+                data[k] = [data[k]]
+    elif isinstance(data, list):
+        for idx, item in enumerate(data):
+            data[idx] = _normalize_record(item, repeated_tags)
+    return data
+
+
 class XMLParser(BaseParser):
     """Parser responsible for reading XML (XForms/IATI) data formats."""
 
@@ -169,6 +239,13 @@ class XMLParser(BaseParser):
 
             if not records:
                 raise ValueError("The XML file contains no record elements.")
+
+            # Normalization of repeated elements (e.g. <transaction>):
+            # Normalize repeated tags to lists even if there is only one occurrence in a record,
+            # ensuring consistent array typing across records and schema validation.
+            repeated_tags = _find_repeated_tags(root, records)
+            if repeated_tags:
+                records = [_normalize_record(r, repeated_tags) for r in records]
 
             df = pd.DataFrame(records)
 

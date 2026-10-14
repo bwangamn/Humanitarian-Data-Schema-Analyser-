@@ -997,6 +997,18 @@ Components are cleanly integrated inside `cli/main.py`. The execution flow proce
    - **Solution**: Developed namespace string stripping logic in `XMLParser` to extract clean tag names while mapping XML node attributes to prefixed keys (e.g., `@code`).
 3. **Challenge: String-Encoded Numeric and Date Fields in JSON/CSV**: Fields containing numbers or dates stored as raw strings defaulted to `string` types.
    - **Solution**: Enhanced `DataProfiler._infer_type()` with fallback numeric coercion (`pd.to_numeric`) and sample date parsing (`pd.to_datetime`) to accurately reclassify string-encoded numbers and dates.
+4. **Challenge: Inconsistent Representation of Repeated XML Elements (<transaction>) and Schema Invalidation**:
+   - **Defect**: In XML datasets, repeated child elements (such as IATI `<transaction>`) were inconsistently structured: records with multiple transactions parsed into a list (array), whereas records with only a single transaction parsed into a single object (`dict`).
+   - **Cause**: ElementTree converted repeated sibling elements to a list only on the second encounter, leaving single-occurrence siblings as plain dictionaries. Consequently, `DataProfiler._infer_type()` encountered mixed object/array types in the column and defaulted to `"object"`. The resulting JSON Schema specified `"type": "object"`, which caused valid records containing lists of transactions to fail data validation. Furthermore, complex nested objects and arrays (e.g., `<title>` and `<transaction>`) lacked inner property definitions.
+   - **Code Change**:
+     - `parsers/xml_parser.py`: Implemented repeated element detection (`_find_repeated_tags`) and recursive normalization (`_normalize_record`), ensuring that repeated elements (such as `<transaction>`) are always normalized to lists (arrays) across all records even if a record contains only one occurrence.
+     - `profiling/profiler.py`: Updated `_infer_type()` to handle mixed object/array branches consistently (inferring `["object", "array"]`), and implemented `_infer_nested_schema()` to recursively derive inner properties for objects and item schemas for arrays.
+     - `schema/schema_builder.py`: Updated `_build_tabular_schema()` to propagate `col.nested_schema`, outputting inner properties for nested structures (such as `title.properties.narrative` and `transaction.items.properties.value`).
+   - **Test Locking It In**:
+     - Added `tests/test_validation.py` (`test_fixture_records_validate_against_generated_schema`), testing all fixtures in `tests/fixtures/` to verify that every parsed record satisfies its generated JSON Schema (Draft 2020-12).
+     - Added `test_xml_parser_single_transaction_normalized_to_array` and enhanced `test_xml_parser_pipeline_profiling_and_schema` in `tests/test_xml_parser.py`, locking in array normalization and inner property validation for `<title>` and `<transaction>`.
+     - Added `test_profiler_mixed_object_array_type_inference` in `tests/test_profiler.py`, locking in consistent type inference for mixed object/array columns.
+
 
 ### 5.7 Individual Contribution
 
@@ -1044,6 +1056,7 @@ The system automated test suite comprises **13 test cases** implemented in `pyte
 | `test_xls_parser.py` | `test_parse_xlsform` | Excel workbook with `survey` sheet | Format="XLSForm", choices extracted | XLSForm metadata extracted | **PASS** |
 | `test_xls_parser.py` | `test_parse_invalid_excel` | Non-existent `.xlsx` path | Raises `FileNotFoundError` | `FileNotFoundError` raised | **PASS** |
 | `test_xml_parser.py` | `test_parse_xml_basic` | XML file with repeated child nodes | Format="XML", nodes extracted | Nodes extracted correctly | **PASS** |
+| `test_validation.py` | `test_fixture_records_validate_against_generated_schema` | All fixtures in `tests/fixtures/` | Every parsed record validates against Draft 2020-12 schema | 100% records validate cleanly | **PASS** |
 
 ### 6.4 Experimental Results / Performance Results
 

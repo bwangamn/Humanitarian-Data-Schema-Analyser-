@@ -297,6 +297,61 @@ def test_xml_parser_pipeline_profiling_and_schema():
     assert "title" in json_schema["properties"]
     assert "transaction" in json_schema["properties"]
 
+    # Nested values represented with inner properties
+    title_prop = json_schema["properties"]["title"]
+    assert "properties" in title_prop
+    assert "narrative" in title_prop["properties"]
+    assert title_prop["properties"]["narrative"]["type"] == "string"
+
+    tx_prop = json_schema["properties"]["transaction"]
+    assert tx_prop["type"] == "array"
+    assert "items" in tx_prop
+    assert "properties" in tx_prop["items"]
+    assert "value" in tx_prop["items"]["properties"]
+    assert "properties" in tx_prop["items"]["properties"]["value"]
+    assert "@currency" in tx_prop["items"]["properties"]["value"]["properties"]
+    assert "#text" in tx_prop["items"]["properties"]["value"]["properties"]
+
+    # Data validation: both activities validate against the generated schema
+    for record in parsed.metadata["records"]:
+        jsonschema.validate(instance=record, schema=json_schema)
+
+
+def test_xml_parser_single_transaction_normalized_to_array(tmp_path):
+    """Verify that a single occurrence of a repeated element (<transaction>) is normalized to an array."""
+    xml_content = """<iati-activities>
+        <iati-activity>
+            <iati-identifier>TEST-001</iati-identifier>
+            <transaction>
+                <value currency="USD">750</value>
+            </transaction>
+        </iati-activity>
+    </iati-activities>"""
+    xml_file = tmp_path / "single_tx.xml"
+    xml_file.write_text(xml_content, encoding="utf-8")
+
+    parsed = XMLParser(str(xml_file)).parse()
+    row = parsed.df.iloc[0]
+
+    # Single transaction must be normalized to a list (array)
+    assert isinstance(row["transaction"], list)
+    assert len(row["transaction"]) == 1
+    assert row["transaction"][0]["value"] == 750
+
+    profiler = DataProfiler(parsed)
+    schema = profiler.profile()
+    assert schema.columns["transaction"].inferred_type == "array"
+
+    builder = SchemaBuilder(schema)
+    json_schema = builder.build()
+    jsonschema.Draft202012Validator.check_schema(json_schema)
+    assert json_schema["properties"]["transaction"]["type"] == "array"
+    assert "items" in json_schema["properties"]["transaction"]
+
+    # Verify record validates against generated schema
+    jsonschema.validate(instance=parsed.metadata["records"][0], schema=json_schema)
+
+
 
 # ---------------------------------------------------------------------------
 # 10. Malformed or missing XML error handling

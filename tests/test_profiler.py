@@ -22,3 +22,15 @@ def test_data_profiler():
     assert schema.columns["age"].max_value == 40.0
     assert schema.columns["registered"].is_date is True
     assert schema.columns["age"].hxl_tag == "#age"
+
+
+def test_profiler_mixed_object_array_type_inference():
+    """Verify that mixed object/array series infer union ['object', 'array'] consistently."""
+    series = pd.Series([
+        {"key": "val"},
+        [{"key": "val1"}, {"key": "val2"}],
+    ])
+    profiler = DataProfiler(ParsedDataset(df=pd.DataFrame({"col": series}), format_name="JSON"))
+    inferred_type, is_date, date_fmt = profiler._infer_type(series)
+    assert inferred_type == ["object", "array"]
+
