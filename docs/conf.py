@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.abspath('..'))
 project = 'Humanitarian Data Schema Analyser'
 copyright = '2026, Humanitarian Data Schema Analyser Team'
 author = 'Humanitarian Data Schema Analyser Team'
-release = '1.0.0'
+release = '0.2.0'
 
 # -- General configuration ---------------------------------------------------
 extensions = [
