@@ -39,3 +39,6 @@ schema*.json
 
 # Sphinx documentation build output
 docs/_build/
+
+# User manual
+User_manual/
