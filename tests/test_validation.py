@@ -14,9 +14,13 @@ from humanitarian_schema_analyzer.profiling.profiler import DataProfiler
 from humanitarian_schema_analyzer.schema.schema_builder import SchemaBuilder
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), "fixtures")
+SUPPORTED_FIXTURE_EXTENSIONS = {".csv", ".json", ".xml", ".xls", ".xlsx"}
 ALL_FIXTURES = [
     f for f in sorted(os.listdir(FIXTURES_DIR))
-    if os.path.isfile(os.path.join(FIXTURES_DIR, f))
+    if (
+        os.path.isfile(os.path.join(FIXTURES_DIR, f))
+        and os.path.splitext(f)[1].lower() in SUPPORTED_FIXTURE_EXTENSIONS
+    )
 ]
 
 
