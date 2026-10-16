@@ -1,0 +1,73 @@
+(humanitarian_env) C:\Users\DELL\OneDrive\Desktop\Humanitarian-Data-Schema-Analyser->pytest -v
+================================================= test session starts =================================================
+platform win32 -- Python 3.13.2, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\DELL\OneDrive\Desktop\Humanitarian-Data-Schema-Analyser-\humanitarian_env\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\DELL\OneDrive\Desktop\Humanitarian-Data-Schema-Analyser-
+configfile: pyproject.toml
+plugins: typeguard-4.6.0
+collected 60 items
+
+tests/test_cli.py::test_cli_analyze_csv PASSED                                                                   [  1%]
+tests/test_csv_parser.py::test_csv_parser_standard PASSED                                                        [  3%]
+tests/test_csv_parser.py::test_csv_parser_hxl PASSED                                                             [  5%]
+tests/test_csv_parser.py::test_csv_parser_file_not_found PASSED                                                  [  6%]
+tests/test_hxl_type_inference.py::test_hxl_vs_csv_type_inference_consistency PASSED                              [  8%]
+tests/test_json_parser.py::test_json_parser_list PASSED                                                          [ 10%]
+tests/test_json_parser.py::test_json_parser_wrapped PASSED                                                       [ 11%]
+tests/test_profiler.py::test_data_profiler PASSED                                                                [ 13%]
+tests/test_profiler.py::test_profiler_mixed_object_array_type_inference PASSED                                   [ 15%]
+tests/test_schema_builder.py::test_schema_builder_validation PASSED                                              [ 16%]
+tests/test_schema_builder.py::test_numeric_looking_strings_data_validation PASSED                                [ 18%]
+tests/test_schema_builder.py::test_actual_numeric_values_data_validation PASSED                                  [ 20%]
+tests/test_schema_builder.py::test_mixed_numeric_and_string_values PASSED                                        [ 21%]
+tests/test_schema_builder.py::test_null_values_and_requiredness PASSED                                           [ 23%]
+tests/test_schema_builder.py::test_observed_min_max_separated_from_constraints PASSED                            [ 25%]
+tests/test_schema_builder.py::test_schema_metaschema_validation_all_variants PASSED                              [ 26%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[drc_ebola_cases_consolidated.csv] PASSED [ 28%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[numeric_strings.json] PASSED    [ 30%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[sample.csv] PASSED              [ 31%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[sample.json] PASSED             [ 33%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[sample.xlsx] PASSED             [ 35%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[sample.xml] PASSED              [ 36%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[sample_hxl.csv] PASSED          [ 38%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[sample_iati.xml] PASSED         [ 40%]
+tests/test_validation.py::test_fixture_records_validate_against_generated_schema[sample_xlsform.xlsx] PASSED     [ 41%]
+tests/test_xls_parser.py::test_xlsform_parsed_as_xlsform_format PASSED                                           [ 43%]
+tests/test_xls_parser.py::test_xlsform_question_names_are_columns PASSED                                         [ 45%]
+tests/test_xls_parser.py::test_xlsform_template_headings_not_columns PASSED                                      [ 46%]
+tests/test_xls_parser.py::test_xlsform_question_metadata_stored PASSED                                           [ 48%]
+tests/test_xls_parser.py::test_xlsform_schema_has_question_properties PASSED                                     [ 50%]
+tests/test_xls_parser.py::test_xlsform_schema_does_not_contain_template_headings PASSED                          [ 51%]
+tests/test_xls_parser.py::test_xlsform_age_type_is_integer PASSED                                                [ 53%]
+tests/test_xls_parser.py::test_xlsform_household_income_type_is_number PASSED                                    [ 55%]
+tests/test_xls_parser.py::test_xlsform_survey_date_type_and_format PASSED                                        [ 56%]
+tests/test_xls_parser.py::test_xlsform_gender_select_one_semantics PASSED                                        [ 58%]
+tests/test_xls_parser.py::test_xlsform_gender_choices_in_profile PASSED                                          [ 60%]
+tests/test_xls_parser.py::test_xlsform_gender_schema_has_enum PASSED                                             [ 61%]
+tests/test_xls_parser.py::test_xlsform_required_fields_in_schema PASSED                                          [ 63%]
+tests/test_xls_parser.py::test_xlsform_optional_field_not_required PASSED                                        [ 65%]
+tests/test_xls_parser.py::test_xlsform_constraint_preserved_as_metadata PASSED                                   [ 66%]
+tests/test_xls_parser.py::test_xlsform_choices_metadata_present PASSED                                           [ 68%]
+tests/test_xls_parser.py::test_xls_parser_standard_excel PASSED                                                  [ 70%]
+tests/test_xls_parser.py::test_xls_parser_standard_excel_no_xlsform_metadata PASSED                              [ 71%]
+tests/test_xls_parser.py::test_xlsform_end_to_end_schema_draft_2020_12_valid PASSED                              [ 73%]
+tests/test_xls_parser.py::test_xlsform_end_to_end_column_count PASSED                                            [ 75%]
+tests/test_xls_parser.py::test_xls_parser_file_not_found PASSED                                                  [ 76%]
+tests/test_xml_parser.py::test_xml_parser PASSED                                                                 [ 78%]
+tests/test_xml_parser.py::test_xml_parser_sample_fixture PASSED                                                  [ 80%]
+tests/test_xml_parser.py::test_xml_parser_nested_title_narrative PASSED                                          [ 81%]
+tests/test_xml_parser.py::test_xml_parser_repeated_transactions_distinct PASSED                                  [ 83%]
+tests/test_xml_parser.py::test_xml_parser_transaction_values_retained PASSED                                     [ 85%]
+tests/test_xml_parser.py::test_xml_parser_attributes_preserved PASSED                                            [ 86%]
+tests/test_xml_parser.py::test_xml_parser_multiple_activities_distinct PASSED                                    [ 88%]
+tests/test_xml_parser.py::test_xml_parser_arbitrary_nesting PASSED                                               [ 90%]
+tests/test_xml_parser.py::test_xml_parser_single_occurrence_representation PASSED                                [ 91%]
+tests/test_xml_parser.py::test_xml_parser_pipeline_profiling_and_schema PASSED                                   [ 93%]
+tests/test_xml_parser.py::test_xml_parser_single_transaction_normalized_to_array PASSED                          [ 95%]
+tests/test_xml_parser.py::test_xml_parser_file_not_found PASSED                                                  [ 96%]
+tests/test_xml_parser.py::test_xml_parser_invalid_syntax PASSED                                                  [ 98%]
+tests/test_xml_parser.py::test_xml_parser_empty_xml PASSED                                                       [100%]
+
+================================================= 60 passed in 3.01s ==================================================
+
+(humanitarian_env) C:\Users\DELL\OneDrive\Desktop\Humanitarian-Data-Schema-Analyser->

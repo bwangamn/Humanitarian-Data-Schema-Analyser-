@@ -1,0 +1,80 @@
+c:/Users/DELL/OneDrive/Desktop/Humanitarian-Data-Schema-Analyser-/tests/fixtures/AI_generated_datasets/benchmark_runner.py
+Machine specifications
+  OS: Windows-11-10.0.26100-SP0
+  CPU: Intel64 Family 6 Model 141 Stepping 1, GenuineIntel
+  Logical CPU cores: 16
+  RAM: 15.73 GiB
+
+Benchmarking 6 file(s), 5 run(s) each.
+
+Running: FYP_datasets\tests\fixtures\benchmarks\benchmark_hxl_1mb.csv
+    run 1/5: 0.439 s
+    run 2/5: 0.384 s
+    run 3/5: 0.381 s
+    run 4/5: 0.401 s
+    run 5/5: 0.436 s
+  File: FYP_datasets\tests\fixtures\benchmarks\benchmark_hxl_1mb.csv
+  Size: 2.56 MiB (2,688,791 bytes)
+  Mean execution time (5 runs): 0.408 s
+  Minimum / maximum: 0.381 s / 0.439 s
+  Standard deviation: 0.028 s
+
+Running: FYP_datasets\tests\fixtures\benchmarks\benchmark_iati_5mb.xml
+    run 1/5: 5.551 s
+    run 2/5: 5.034 s
+    run 3/5: 4.872 s
+    run 4/5: 4.887 s
+    run 5/5: 4.764 s
+  File: FYP_datasets\tests\fixtures\benchmarks\benchmark_iati_5mb.xml
+  Size: 26.35 MiB (27,628,045 bytes)
+  Mean execution time (5 runs): 5.022 s
+  Minimum / maximum: 4.764 s / 5.551 s
+  Standard deviation: 0.311 s
+
+Running: FYP_datasets\tests\fixtures\benchmarks\benchmark_json_5mb.json
+    run 1/5: 1.569 s
+    run 2/5: 1.327 s
+    run 3/5: 1.333 s
+    run 4/5: 1.361 s
+    run 5/5: 1.367 s
+  File: FYP_datasets\tests\fixtures\benchmarks\benchmark_json_5mb.json
+  Size: 20.02 MiB (20,989,280 bytes)
+  Mean execution time (5 runs): 1.392 s
+  Minimum / maximum: 1.327 s / 1.569 s
+  Standard deviation: 0.101 s
+
+Running: FYP_datasets\tests\fixtures\benchmarks\benchmark_std_10mb.csv
+    run 1/5: 6.733 s
+    run 2/5: 6.508 s
+    run 3/5: 6.600 s
+    run 4/5: 6.169 s
+    run 5/5: 6.246 s
+  File: FYP_datasets\tests\fixtures\benchmarks\benchmark_std_10mb.csv
+  Size: 60.02 MiB (62,931,969 bytes)
+  Mean execution time (5 runs): 6.451 s
+  Minimum / maximum: 6.169 s / 6.733 s
+  Standard deviation: 0.238 s
+
+Running: FYP_datasets\tests\fixtures\benchmarks\benchmark_std_5mb.csv
+    run 1/5: 2.361 s
+    run 2/5: 2.448 s
+    run 3/5: 2.349 s
+    run 4/5: 2.365 s
+    run 5/5: 2.380 s
+  File: FYP_datasets\tests\fixtures\benchmarks\benchmark_std_5mb.csv
+  Size: 22.34 MiB (23,429,936 bytes)
+  Mean execution time (5 runs): 2.381 s
+  Minimum / maximum: 2.349 s / 2.448 s
+  Standard deviation: 0.040 s
+
+Running: FYP_datasets\tests\fixtures\benchmarks\benchmark_xlsform_2.5mb.xlsx
+    run 1/5: 0.318 s
+    run 2/5: 0.015 s
+    run 3/5: 0.022 s
+    run 4/5: 0.017 s
+    run 5/5: 0.016 s
+  File: FYP_datasets\tests\fixtures\benchmarks\benchmark_xlsform_2.5mb.xlsx
+  Size: 3.99 MiB (4,182,588 bytes)
+  Mean execution time (5 runs): 0.078 s
+  Minimum / maximum: 0.015 s / 0.318 s
+  Standard deviation: 0.134 s
