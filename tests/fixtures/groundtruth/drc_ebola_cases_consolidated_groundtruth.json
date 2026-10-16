@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DRC Ebola Cases Consolidated Dataset Schema",
+  "description": "Ground truth JSON Schema defining column structures, data types, date formats, enums, and required fields for drc_ebola_cases_consolidated.csv.",
+  "type": "object",
+  "properties": {
+    "location_country": {
+      "type": "string",
+      "description": "ISO3 country code representing the location"
+    },
+    "location_level": {
+      "type": "integer",
+      "description": "Administrative location level (e.g., 0 for national, 3 for health zone)"
+    },
+    "location_name": {
+      "type": ["string", "null"],
+      "description": "Standardised location name"
+    },
+    "location_name_source": {
+      "type": ["string", "null"],
+      "description": "Original location name as reported in the source data"
+    },
+    "location_code": {
+      "type": ["string", "null"],
+      "description": "P-code or ISO code corresponding to the location"
+    },
+    "location_code_type": {
+      "type": "string",
+      "enum": ["pcode", "iso3", "name"],
+      "description": "Type of location code identifier used"
+    },
+    "reference_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of observation or report in YYYY-MM-DD format"
+    },
+    "measure": {
+      "type": "string",
+      "enum": ["cases", "contacts", "deaths"],
+      "description": "Metric being measured"
+    },
+    "case_classification": {
+      "type": ["string", "null"],
+      "enum": ["confirmed", "suspected", null],
+      "description": "Classification status of the case"
+    },
+    "time_period": {
+      "type": "string",
+      "enum": ["cumulative"],
+      "description": "Temporal aggregation method"
+    },
+    "value": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Count associated with the measure"
+    },
+    "unit": {
+      "type": "string",
+      "enum": ["count"],
+      "description": "Unit of measurement"
+    },
+    "source": {
+      "type": "string",
+      "description": "Primary data source or SitRep document title"
+    },
+    "source_url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "URL to the raw data file or source repository"
+    },
+    "source_indicator_name": {
+      "type": ["string", "null"],
+      "description": "Indicator name as defined in the raw source file"
+    },
+    "indicator_label": {
+      "type": ["string", "null"],
+      "description": "Label assigned to the indicator"
+    },
+    "reporting_period_start": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Start date for the reporting period"
+    },
+    "reporting_period_end": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "End date for the reporting period"
+    },
+    "last_updated": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Timestamp/date when the record was last modified"
+    },
+    "data_quality_flag": {
+      "type": ["string", "null"],
+      "enum": ["manual", null],
+      "description": "Flag indicating manual data transcription or quality overrides"
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Additional context or explanations regarding the data point"
+    }
+  },
+  "required": [
+    "location_country",
+    "location_level",
+    "reference_date",
+    "measure",
+    "value",
+    "unit",
+    "source"
+  ]
+}
