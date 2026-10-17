@@ -120,7 +120,17 @@ Generating interactive HTML dashboard...
 Analysis complete! Report saved to: report_hxl.html
 ```
 
-## 10. Supported JSON Schema Output
+## 10. Unify Two JSON Schemas
+
+`schema_unifier.py` combines the `properties` and `required` arrays from two JSON Schema files. It writes the result to the current working directory using both input stems; for example, `drc_schema.json` and `mali_schema.json` produce `drc_schema_mali_schema_unified.json`.
+
+```bash
+python schema_unifier.py unify path/to/drc_schema.json path/to/mali_schema.json
+```
+
+Fields found in only one input are copied to the unified schema. For fields with the same name and type, one property is retained and their `examples` arrays are combined with duplicates removed. If fields have the same name but different types, the command prints a warning and writes both types as a JSON Schema type array, such as `"type": ["integer", "string"]`.
+
+## 11. Supported JSON Schema Output
 The engine generates validated Draft 2020-12 JSON Schema definitions:
 
 ```json
