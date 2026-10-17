@@ -11,8 +11,11 @@ dataset fields.
 
 XLSForm structural row types that do NOT represent a respondent-facing question
 are filtered out:
-  begin_group, end_group, begin_repeat, end_repeat,
-  begin_score, end_score, begin_rank, end_rank, note
+
+.. code-block:: text
+
+   begin_group, end_group, begin_repeat, end_repeat,
+   begin_score, end_score, begin_rank, end_rank, note
 
 Question metadata (type, label, required, constraint, choices) is stored in
 ``ParsedDataset.metadata["xlsform_questions"]`` so that the downstream

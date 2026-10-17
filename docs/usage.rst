@@ -65,11 +65,15 @@ The command writes the result to the current working directory as
 
 Fields that appear in only one input schema are copied to the output. When a
 field name and type match in both inputs, the property is retained once and its
-``examples`` arrays are combined without duplicates. When matching field names
-have different types, the output keeps both values as a JSON Schema type array,
-such as ``["integer", "string"]``, and prints a warning. Missing files,
-unreadable files, malformed JSON, and non-object JSON documents result in a
-clear CLI error message and a non-zero exit code.
+``examples`` arrays are combined without duplicates. For other overlapping
+property metadata, values from the first schema take precedence while
+properties present only in the second schema are retained. When matching field
+names have different types, the output keeps both values as a JSON Schema type
+array, such as ``["integer", "string"]``, and prints a warning. The output
+combines and deduplicates the two ``required`` arrays. Missing files,
+unreadable files, malformed JSON, invalid ``properties`` or ``required``
+sections, and non-object JSON documents result in a clear CLI error message and
+a non-zero exit code.
 
 Programmatic Python Usage
 -------------------------

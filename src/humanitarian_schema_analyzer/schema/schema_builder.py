@@ -2,10 +2,14 @@
 
 For ordinary datasets each column becomes a JSON Schema property.
 Following Strategy A (Preserve original input types):
+
 - The schema faithfully represents the input data's actual types.
+
 - A numeric-looking string column retains "type": "string" so that raw records
   validate against the schema without transformation.
+
 - Columns with mixed primitive types emit union type definitions (e.g. ["string", "integer"]).
+
 - Observed sample minimum and maximum values are recorded as informational
   metadata (x-observed-minimum, x-observed-maximum) rather than rigid validation
   constraints, separating sample observations from enforced domain rules.
@@ -14,11 +18,17 @@ Following Strategy A (Preserve original input types):
 
 For XLSForm datasets the builder uses the XLSForm-specific metadata stored in
 each ``ColumnProfile``:
+
 * ``x-xlsform-type``    – the original XLSForm type string
+
 * ``x-xlsform-label``   – the human-readable question label
+
 * ``x-xlsform-constraint`` – the original constraint expression
+
 * ``enum``              – choice names for select_one
+
 * ``"items": {"type": "string"}`` with ``x-xlsform-choices`` – for select_multiple
+
 * ``required`` array reflects questions marked as required in the XLSForm.
 """
 

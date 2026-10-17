@@ -16,16 +16,18 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'myst_parser',
 ]
 
-try:
-    import myst_parser
-    extensions.append('myst_parser')
-except ImportError:
-    pass
-
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [
+    '_build',
+    'Thumbs.db',
+    '.DS_Store',
+    'evaluation/evaluation_plan.md',
+    'figures/README.md',
+    'report/report_draft.md',
+]
 
 # Docstring configuration
 napoleon_google_docstring = True
@@ -44,12 +46,7 @@ source_suffix = {
 }
 
 # -- Options for HTML output -------------------------------------------------
-try:
-    import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
-except ImportError:
-    html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 html_static_path = ['_static']
 html_title = 'Humanitarian Data Schema Analyser Documentation'
-

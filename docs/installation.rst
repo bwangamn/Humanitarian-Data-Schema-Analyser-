@@ -42,11 +42,19 @@ Environment Setup
 
       python -m pip install -r requirements.txt
 
-Installing Sphinx Documentation Dependencies
---------------------------------------------
-
-To build the HTML documentation locally, ensure Sphinx and the theme packages are installed in your environment:
+The root requirements file includes runtime, development, and documentation
+dependencies. To install only the package and documentation tools instead, use
+the ``docs`` extra:
 
 .. code-block:: powershell
 
-   python -m pip install sphinx sphinx-rtd-theme myst-parser
+   python -m pip install -e ".[docs]"
+
+Building the Documentation
+--------------------------
+
+.. code-block:: powershell
+
+   python -m sphinx -b html docs docs/_build/html
+
+Open ``docs/_build/html/index.html`` to browse the generated documentation.

@@ -67,7 +67,13 @@ git clone https://github.com/bwangamn/Humanitarian-Data-Schema-Analyser-.git
 cd Humanitarian-Data-Schema-Analyser-
 python -m venv humanitarian_env
 .\humanitarian_env\Scripts\Activate.ps1
-pip install -e .[dev]
+pip install -e ".[dev,docs]"
+```
+
+Build the Sphinx documentation with:
+
+```bash
+python -m sphinx -b html docs docs/_build/html
 ```
 
 ## 7. Basic CLI Usage
@@ -168,7 +174,7 @@ git clone https://github.com/bwangamn/Humanitarian-Data-Schema-Analyser-.git
 cd Humanitarian-Data-Schema-Analyser-
 python -m venv humanitarian_env
 .\humanitarian_env\Scripts\Activate.ps1
-pip install -e .[dev]
+pip install -e ".[dev,docs]"
 ```
 
 ## 13. Running Tests

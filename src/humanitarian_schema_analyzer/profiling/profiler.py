@@ -4,14 +4,19 @@ For ordinary CSV/JSON/XML/Excel datasets the profiler performs column-level
 statistical analysis.
 
 Following Strategy A (Preserve original input types):
+
 - Values are profiled according to their actual input encoding in the dataset.
+
 - String fields (even if numeric-looking such as "10" or "20") are inferred as
   'string', preserving the original data encoding and guaranteeing that the
   generated JSON Schema validates the source records.
+
 - Potential numeric interpretations are noted via observation metadata
   (``is_numeric_string``, ``potential_type``) rather than overriding the schema type.
+
 - Columns containing mixed types (e.g. both integers and strings) infer a union
   type (e.g. ['string', 'integer']).
+
 - Sample minimum and maximum statistics are recorded as observed metrics and
   kept distinct from enforced JSON Schema validation constraints.
 

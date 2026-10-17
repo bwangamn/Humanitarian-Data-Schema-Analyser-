@@ -27,6 +27,7 @@ Table of Contents
 
    installation
    usage
+   packaging
 
 .. toctree::
    :maxdepth: 2

@@ -49,6 +49,11 @@ dev = [
     "build>=1.0",
     "twine>=5.0"
 ]
+docs = [
+    "sphinx>=8.0",
+    "sphinx-rtd-theme>=3.0",
+    "myst-parser>=4.0"
+]
 
 [project.urls]
 Homepage = "https://github.com/bwangamn/Humanitarian-Data-Schema-Analyser-"
