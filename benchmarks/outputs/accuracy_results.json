@@ -1,0 +1,10 @@
+{
+    "dataset": "drc_ebola_cases_consolidated_shema.csv",
+    "fields_correct": 21,
+    "fields_total": 21,
+    "A_f": 1.0,
+    "types_correct": 21,
+    "types_total": 21,
+    "A_t": 1.0,
+    "misclassifications": []
+}
