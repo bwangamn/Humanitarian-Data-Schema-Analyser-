@@ -4,7 +4,7 @@ Schema Package
 Unified Schema Model
 --------------------
 
-.. automodule:: schema.unified_model
+.. automodule:: humanitarian_schema_analyzer.schema.unified_model
    :members:
    :undoc-members:
    :show-inheritance:
@@ -12,7 +12,15 @@ Unified Schema Model
 Schema Builder
 --------------
 
-.. automodule:: schema.schema_builder
+.. automodule:: humanitarian_schema_analyzer.schema.schema_builder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Schema Unifier
+--------------
+
+.. automodule:: humanitarian_schema_analyzer.schema.unifier
    :members:
    :undoc-members:
    :show-inheritance:

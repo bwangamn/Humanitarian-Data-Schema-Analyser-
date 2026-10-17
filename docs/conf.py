@@ -1,14 +1,14 @@
 import os
 import sys
 
-# Insert project root directory into Python path so autodoc can locate packages
-sys.path.insert(0, os.path.abspath('..'))
+# Insert the ``src`` directory so autodoc can locate the installed package layout.
+sys.path.insert(0, os.path.abspath('../src'))
 
 # -- Project information -----------------------------------------------------
 project = 'Humanitarian Data Schema Analyser'
 copyright = '2026, Humanitarian Data Schema Analyser Team'
 author = 'Humanitarian Data Schema Analyser Team'
-release = '0.2.0'
+release = '0.2.1'
 
 # -- General configuration ---------------------------------------------------
 extensions = [

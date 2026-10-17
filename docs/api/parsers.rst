@@ -4,7 +4,7 @@ Parsers Package
 Base Parser
 -----------
 
-.. automodule:: parsers.base_parser
+.. automodule:: humanitarian_schema_analyzer.parsers.base_parser
    :members:
    :undoc-members:
    :show-inheritance:
@@ -12,7 +12,7 @@ Base Parser
 Parser Factory
 --------------
 
-.. automodule:: parsers.factory
+.. automodule:: humanitarian_schema_analyzer.parsers.factory
    :members:
    :undoc-members:
    :show-inheritance:
@@ -20,7 +20,7 @@ Parser Factory
 CSV Parser
 ----------
 
-.. automodule:: parsers.csv_parser
+.. automodule:: humanitarian_schema_analyzer.parsers.csv_parser
    :members:
    :undoc-members:
    :show-inheritance:
@@ -28,7 +28,7 @@ CSV Parser
 JSON Parser
 -----------
 
-.. automodule:: parsers.json_parser
+.. automodule:: humanitarian_schema_analyzer.parsers.json_parser
    :members:
    :undoc-members:
    :show-inheritance:
@@ -36,7 +36,7 @@ JSON Parser
 XML Parser
 ----------
 
-.. automodule:: parsers.xml_parser
+.. automodule:: humanitarian_schema_analyzer.parsers.xml_parser
    :members:
    :undoc-members:
    :show-inheritance:
@@ -44,7 +44,7 @@ XML Parser
 XLS Parser
 ----------
 
-.. automodule:: parsers.xls_parser
+.. automodule:: humanitarian_schema_analyzer.parsers.xls_parser
    :members:
    :undoc-members:
    :show-inheritance:

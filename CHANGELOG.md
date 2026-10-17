@@ -5,6 +5,19 @@ All notable changes to the **Humanitarian Data Schema Analyzer** project will be
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-10-17
+
+### Added
+- **JSON Schema Unification**: Added `hds-analyzer unify <schema1_path> <schema2_path>` to combine two system-generated JSON Schema Draft 2020-12 documents into one schema in the current working directory.
+- **Schema Unifier Module**: Added `humanitarian_schema_analyzer.schema.unifier.unify_schemas()`, which merges unique properties, deduplicates `required` field names, and combines duplicate field `examples` arrays.
+- **Type Conflict Reporting**: When matching property names have different types, the unified schema retains both types as a JSON Schema type array (for example, `["integer", "string"]`) and the CLI prints a highlighted warning.
+- **Unifier CLI Tests**: Added `tests/test_unifier.py` covering non-overlapping fields, matching fields with merged examples, and type-conflict resolution through the main Typer application.
+
+### Changed
+- **CLI Schema Handling**: Added JSON file validation and clear error messages for missing, unreadable, malformed, or non-object schema files passed to `hds-analyzer unify`.
+- **Documentation**: Added `hds-analyzer unify` usage and conflict-resolution behaviour to the README.
+- **Unifier Delivery**: Migrated schema unification from the standalone script into the installed `hds-analyzer` CLI and package schema module.
+
 ## [0.2.0] - 2026-10-14
 
 ### Fixed

@@ -15,6 +15,7 @@ Features
 * **HXL Tag Detection**: Native identification of Humanitarian Exchange Language (HXL) semantic tags.
 * **Statistical Profiling**: Type inference, completeness analysis, uniqueness ratios, numeric distributions, and date pattern recognition.
 * **Unified JSON Schema Export**: Generates compliant Draft 2020-12 JSON Schema representations with custom ``x-hxl-tag`` extensions.
+* **JSON Schema Unification**: Combines two generated schemas, merges examples and required fields, and reports type conflicts.
 * **Interactive HTML Dashboard**: Self-contained visual report with dataset metrics, search filtering, and schema inspection.
 
 Table of Contents
