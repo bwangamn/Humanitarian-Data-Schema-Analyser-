@@ -1,0 +1,192 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Humanitarian Dataset Schema (CSV)",
+    "type": "object",
+    "properties": {
+        "location_country": {
+            "type": "string",
+            "examples": [
+                "COD"
+            ]
+        },
+        "location_level": {
+            "type": "integer",
+            "x-observed-minimum": 0.0,
+            "x-observed-maximum": 3.0,
+            "examples": [
+                3,
+                0
+            ]
+        },
+        "location_name": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                "Mongbalu",
+                "R\u00e9publique d\u00e9mocratique du Congo",
+                "Bunia"
+            ]
+        },
+        "location_name_source": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                "Mongbwalu",
+                "DRC",
+                "Bunia"
+            ]
+        },
+        "location_code": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                "CD540510",
+                "COD",
+                "CD540202"
+            ]
+        },
+        "location_code_type": {
+            "type": "string",
+            "examples": [
+                "pcode",
+                "iso3",
+                "name"
+            ]
+        },
+        "reference_date": {
+            "type": "string",
+            "format": "date",
+            "examples": [
+                "2026-05-14",
+                "2026-05-15",
+                "2026-05-17"
+            ]
+        },
+        "measure": {
+            "type": "string",
+            "examples": [
+                "cases",
+                "contacts",
+                "deaths"
+            ]
+        },
+        "case_classification": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                "confirmed",
+                "suspected"
+            ]
+        },
+        "time_period": {
+            "type": "string",
+            "examples": [
+                "cumulative"
+            ]
+        },
+        "value": {
+            "type": "integer",
+            "x-observed-minimum": 0.0,
+            "x-observed-maximum": 8728.0,
+            "examples": [
+                0,
+                82,
+                57
+            ]
+        },
+        "unit": {
+            "type": "string",
+            "examples": [
+                "count"
+            ]
+        },
+        "source": {
+            "type": "string",
+            "examples": [
+                "INRB-UMIE",
+                "SitRep MVEBDB N\u00b0083, 06/08/2026",
+                "SitRep MVEBDB N\u00b0085, 07/08/2026"
+            ]
+        },
+        "source_url": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv",
+                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv",
+                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv"
+            ]
+        },
+        "source_indicator_name": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "indicator_label": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "reporting_period_start": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "reporting_period_end": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "last_updated": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "data_quality_flag": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                "manual"
+            ]
+        },
+        "notes": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "examples": [
+                "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.",
+                "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.",
+                "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."
+            ]
+        }
+    },
+    "required": [
+        "location_country",
+        "location_level",
+        "location_code_type",
+        "reference_date",
+        "measure",
+        "time_period",
+        "value",
+        "unit",
+        "source"
+    ]
+}
