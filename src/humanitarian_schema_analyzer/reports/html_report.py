@@ -1,3 +1,4 @@
+import html as html_lib
 import json
 import os
 from typing import Dict, Any
@@ -160,7 +161,7 @@ class HTMLReportGenerator:
                 <div class="subtitle">Automated Schema Profiling & Standardisation • UNZA Final Year Project</div>
             </div>
             <div>
-                <span class="badge badge-hxl">Format: {self.schema.format_name}</span>
+                <span class="badge badge-hxl">Format: {html_lib.escape(str(self.schema.format_name))}</span>
             </div>
         </div>
 
@@ -179,7 +180,7 @@ class HTMLReportGenerator:
             </div>
             <div class="card">
                 <div class="metric-title">Detected Format</div>
-                <div class="metric-value" style="font-size: 20px;">{self.schema.format_name}</div>
+                <div class="metric-value" style="font-size: 20px;">{html_lib.escape(str(self.schema.format_name))}</div>
             </div>
         </div>
 
@@ -200,15 +201,15 @@ class HTMLReportGenerator:
                 <tbody>"""
 
         for col in self.schema.columns.values():
-            hxl_badge = f'<span class="badge badge-hxl">{col.hxl_tag}</span>' if col.hxl_tag else '-'
+            hxl_badge = f'<span class="badge badge-hxl">{html_lib.escape(str(col.hxl_tag))}</span>' if col.hxl_tag else '-'
             missing_badge = f'<span class="badge badge-warn">{col.missing_percentage}%</span>' if col.missing_percentage > 0 else f'<span class="badge badge-good">0%</span>'
-            samples_str = ", ".join(map(str, col.sample_values)) if col.sample_values else "-"
+            samples_str = html_lib.escape(", ".join(map(str, col.sample_values))) if col.sample_values else "-"
 
-            type_display = "/".join(col.inferred_type) if isinstance(col.inferred_type, list) else str(col.inferred_type)
+            type_display = html_lib.escape("/".join(map(str, col.inferred_type)) if isinstance(col.inferred_type, list) else str(col.inferred_type))
 
             html += f"""
                     <tr>
-                        <td><strong>{col.name}</strong></td>
+                        <td><strong>{html_lib.escape(str(col.name))}</strong></td>
                         <td>{hxl_badge}</td>
                         <td><code>{type_display}</code></td>
                         <td>{col.missing_count}</td>
@@ -224,7 +225,7 @@ class HTMLReportGenerator:
 
         <div class="table-card">
             <h2>Standardised JSON Schema (Draft 2020-12)</h2>
-            <pre>{json.dumps(self.json_schema, indent=4)}</pre>
+            <pre>{html_lib.escape(json.dumps(self.json_schema, indent=4))}</pre>
         </div>
     </div>
 </body>
