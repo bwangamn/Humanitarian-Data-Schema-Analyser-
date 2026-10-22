@@ -139,26 +139,26 @@
                 <div class="subtitle">Automated Schema Profiling & Standardisation • UNZA Final Year Project</div>
             </div>
             <div>
-                <span class="badge badge-hxl">Format: CSV</span>
+                <span class="badge badge-hxl">Format: XML</span>
             </div>
         </div>
 
         <div class="metrics-grid">
             <div class="card">
                 <div class="metric-title">Total Rows</div>
-                <div class="metric-value">10,971</div>
+                <div class="metric-value">11,493</div>
             </div>
             <div class="card">
                 <div class="metric-title">Total Columns</div>
-                <div class="metric-value">21</div>
+                <div class="metric-value">15</div>
             </div>
             <div class="card">
                 <div class="metric-title">Data Completeness</div>
-                <div class="metric-value">66.5%</div>
+                <div class="metric-value">86.6%</div>
             </div>
             <div class="card">
                 <div class="metric-title">Detected Format</div>
-                <div class="metric-value" style="font-size: 20px;">CSV</div>
+                <div class="metric-value" style="font-size: 20px;">XML</div>
             </div>
         </div>
 
@@ -178,7 +178,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>location_country</strong></td>
+                        <td><strong>@id</strong></td>
+                        <td>-</td>
+                        <td><code>string</code></td>
+                        <td>0</td>
+                        <td><span class="badge badge-good">0%</span></td>
+                        <td>11493</td>
+                        <td><small>ER-000001, ER-000002, ER-000003</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>country_iso3</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
                         <td>0</td>
@@ -187,74 +196,47 @@
                         <td><small>COD</small></td>
                     </tr>
                     <tr>
-                        <td><strong>location_level</strong></td>
+                        <td><strong>admin_level</strong></td>
                         <td>-</td>
-                        <td><code>integer</code></td>
+                        <td><code>string</code></td>
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>2</td>
-                        <td><small>3, 0</small></td>
+                        <td><small>health_zone, national</small></td>
                     </tr>
                     <tr>
-                        <td><strong>location_name</strong></td>
+                        <td><strong>location</strong></td>
+                        <td>-</td>
+                        <td><code>object</code></td>
+                        <td>0</td>
+                        <td><span class="badge badge-good">0%</span></td>
+                        <td>74</td>
+                        <td><small>{'location_name': 'Mongbalu', 'name_as_reported': 'Mongbwalu', 'location_code': {'@type': 'pcode', '#text': 'CD540510'}, 'province': 'Ituri', 'population_estimate': '78500'}, {'location_name': 'République démocratique du Congo', 'name_as_reported': 'DRC', 'location_code': {'@type': 'iso3', '#text': 'COD'}, 'province': 'National', 'population_estimate': '181500'}, {'location_name': 'Bunia', 'name_as_reported': 'Bunia', 'location_code': {'@type': 'pcode', '#text': 'CD540202'}, 'province': 'Ituri', 'population_estimate': '275000'}</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>report_date</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
-                        <td>83</td>
-                        <td><span class="badge badge-warn">0.76%</span></td>
-                        <td>67</td>
-                        <td><small>Mongbalu, République démocratique du Congo, Bunia</small></td>
+                        <td>0</td>
+                        <td><span class="badge badge-good">0%</span></td>
+                        <td>129</td>
+                        <td><small>14/05/2026, 15/05/2026, 17/05/2026</small></td>
                     </tr>
                     <tr>
-                        <td><strong>location_name_source</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>83</td>
-                        <td><span class="badge badge-warn">0.76%</span></td>
-                        <td>73</td>
-                        <td><small>Mongbwalu, DRC, Bunia</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>location_code</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>83</td>
-                        <td><span class="badge badge-warn">0.76%</span></td>
-                        <td>67</td>
-                        <td><small>CD540510, COD, CD540202</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>location_code_type</strong></td>
+                        <td><strong>indicator</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>3</td>
-                        <td><small>pcode, iso3, name</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>reference_date</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>124</td>
-                        <td><small>2026-05-14, 2026-05-15, 2026-05-17</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>measure</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>3</td>
-                        <td><small>cases, contacts, deaths</small></td>
+                        <td><small>case, contact_traced, death</small></td>
                     </tr>
                     <tr>
                         <td><strong>case_classification</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
                         <td>126</td>
-                        <td><span class="badge badge-warn">1.15%</span></td>
+                        <td><span class="badge badge-warn">1.1%</span></td>
                         <td>2</td>
                         <td><small>confirmed, suspected</small></td>
                     </tr>
@@ -268,12 +250,12 @@
                         <td><small>cumulative</small></td>
                     </tr>
                     <tr>
-                        <td><strong>value</strong></td>
+                        <td><strong>case_count</strong></td>
                         <td>-</td>
-                        <td><code>integer</code></td>
+                        <td><code>string</code></td>
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
-                        <td>840</td>
+                        <td>868</td>
                         <td><small>0, 82, 57</small></td>
                     </tr>
                     <tr>
@@ -286,7 +268,16 @@
                         <td><small>count</small></td>
                     </tr>
                     <tr>
-                        <td><strong>source</strong></td>
+                        <td><strong>alert_level</strong></td>
+                        <td>-</td>
+                        <td><code>string</code></td>
+                        <td>0</td>
+                        <td><span class="badge badge-good">0%</span></td>
+                        <td>3</td>
+                        <td><small>low, high, medium</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>data_provider</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
                         <td>0</td>
@@ -295,7 +286,7 @@
                         <td><small>INRB-UMIE, SitRep MVEBDB N°083, 06/08/2026, SitRep MVEBDB N°085, 07/08/2026</small></td>
                     </tr>
                     <tr>
-                        <td><strong>source_url</strong></td>
+                        <td><strong>source_link</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
                         <td>6</td>
@@ -304,64 +295,19 @@
                         <td><small>https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv, https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv, https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv</small></td>
                     </tr>
                     <tr>
-                        <td><strong>source_indicator_name</strong></td>
+                        <td><strong>quality_check</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
-                        <td>10971</td>
-                        <td><span class="badge badge-warn">100.0%</span></td>
-                        <td>0</td>
-                        <td><small>-</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>indicator_label</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>10971</td>
-                        <td><span class="badge badge-warn">100.0%</span></td>
-                        <td>0</td>
-                        <td><small>-</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>reporting_period_start</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>10971</td>
-                        <td><span class="badge badge-warn">100.0%</span></td>
-                        <td>0</td>
-                        <td><small>-</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>reporting_period_end</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>10971</td>
-                        <td><span class="badge badge-warn">100.0%</span></td>
-                        <td>0</td>
-                        <td><small>-</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>last_updated</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>10971</td>
-                        <td><span class="badge badge-warn">100.0%</span></td>
-                        <td>0</td>
-                        <td><small>-</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>data_quality_flag</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>10965</td>
+                        <td>11487</td>
                         <td><span class="badge badge-warn">99.95%</span></td>
                         <td>1</td>
-                        <td><small>manual</small></td>
+                        <td><small>manually transcribed</small></td>
                     </tr>
                     <tr>
-                        <td><strong>notes</strong></td>
+                        <td><strong>comment</strong></td>
                         <td>-</td>
                         <td><code>string</code></td>
-                        <td>10965</td>
+                        <td>11487</td>
                         <td><span class="badge badge-warn">99.95%</span></td>
                         <td>6</td>
                         <td><small>Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.</small></td>
@@ -374,80 +320,105 @@
             <h2>Standardised JSON Schema (Draft 2020-12)</h2>
             <pre>{
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Humanitarian Dataset Schema (CSV)",
+    "title": "Humanitarian Dataset Schema (XML)",
     "type": "object",
     "properties": {
-        "location_country": {
+        "@id": {
+            "type": "string",
+            "examples": [
+                "ER-000001",
+                "ER-000002",
+                "ER-000003"
+            ]
+        },
+        "country_iso3": {
             "type": "string",
             "examples": [
                 "COD"
             ]
         },
-        "location_level": {
-            "type": "integer",
-            "x-observed-minimum": 0.0,
-            "x-observed-maximum": 3.0,
-            "examples": [
-                3,
-                0
-            ]
-        },
-        "location_name": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "examples": [
-                "Mongbalu",
-                "R\u00e9publique d\u00e9mocratique du Congo",
-                "Bunia"
-            ]
-        },
-        "location_name_source": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "examples": [
-                "Mongbwalu",
-                "DRC",
-                "Bunia"
-            ]
-        },
-        "location_code": {
-            "type": [
-                "string",
-                "null"
-            ],
-            "examples": [
-                "CD540510",
-                "COD",
-                "CD540202"
-            ]
-        },
-        "location_code_type": {
+        "admin_level": {
             "type": "string",
             "examples": [
-                "pcode",
-                "iso3",
-                "name"
+                "health_zone",
+                "national"
             ]
         },
-        "reference_date": {
+        "location": {
+            "type": "object",
+            "properties": {
+                "location_name": {
+                    "type": "string"
+                },
+                "name_as_reported": {
+                    "type": "string"
+                },
+                "location_code": {
+                    "type": "object",
+                    "properties": {
+                        "@type": {
+                            "type": "string"
+                        },
+                        "#text": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "province": {
+                    "type": "string"
+                },
+                "population_estimate": {
+                    "type": "string"
+                }
+            },
+            "examples": [
+                {
+                    "location_name": "Mongbalu",
+                    "name_as_reported": "Mongbwalu",
+                    "location_code": {
+                        "@type": "pcode",
+                        "#text": "CD540510"
+                    },
+                    "province": "Ituri",
+                    "population_estimate": "78500"
+                },
+                {
+                    "location_name": "R\u00e9publique d\u00e9mocratique du Congo",
+                    "name_as_reported": "DRC",
+                    "location_code": {
+                        "@type": "iso3",
+                        "#text": "COD"
+                    },
+                    "province": "National",
+                    "population_estimate": "181500"
+                },
+                {
+                    "location_name": "Bunia",
+                    "name_as_reported": "Bunia",
+                    "location_code": {
+                        "@type": "pcode",
+                        "#text": "CD540202"
+                    },
+                    "province": "Ituri",
+                    "population_estimate": "275000"
+                }
+            ]
+        },
+        "report_date": {
             "type": "string",
             "format": "date",
             "examples": [
-                "2026-05-14",
-                "2026-05-15",
-                "2026-05-17"
+                "14/05/2026",
+                "15/05/2026",
+                "17/05/2026"
             ]
         },
-        "measure": {
+        "indicator": {
             "type": "string",
             "examples": [
-                "cases",
-                "contacts",
-                "deaths"
+                "case",
+                "contact_traced",
+                "death"
             ]
         },
         "case_classification": {
@@ -466,14 +437,14 @@
                 "cumulative"
             ]
         },
-        "value": {
-            "type": "integer",
-            "x-observed-minimum": 0.0,
-            "x-observed-maximum": 8728.0,
+        "case_count": {
+            "type": "string",
+            "x-numeric-string": true,
+            "x-potential-type": "integer",
             "examples": [
-                0,
-                82,
-                57
+                "0",
+                "82",
+                "57"
             ]
         },
         "unit": {
@@ -482,7 +453,15 @@
                 "count"
             ]
         },
-        "source": {
+        "alert_level": {
+            "type": "string",
+            "examples": [
+                "low",
+                "high",
+                "medium"
+            ]
+        },
+        "data_provider": {
             "type": "string",
             "examples": [
                 "INRB-UMIE",
@@ -490,7 +469,7 @@
                 "SitRep MVEBDB N\u00b0085, 07/08/2026"
             ]
         },
-        "source_url": {
+        "source_link": {
             "type": [
                 "string",
                 "null"
@@ -501,46 +480,16 @@
                 "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv"
             ]
         },
-        "source_indicator_name": {
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "indicator_label": {
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "reporting_period_start": {
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "reporting_period_end": {
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "last_updated": {
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "data_quality_flag": {
+        "quality_check": {
             "type": [
                 "string",
                 "null"
             ],
             "examples": [
-                "manual"
+                "manually transcribed"
             ]
         },
-        "notes": {
+        "comment": {
             "type": [
                 "string",
                 "null"
@@ -553,15 +502,17 @@
         }
     },
     "required": [
-        "location_country",
-        "location_level",
-        "location_code_type",
-        "reference_date",
-        "measure",
+        "@id",
+        "country_iso3",
+        "admin_level",
+        "location",
+        "report_date",
+        "indicator",
         "time_period",
-        "value",
+        "case_count",
         "unit",
-        "source"
+        "alert_level",
+        "data_provider"
     ]
 }</pre>
         </div>

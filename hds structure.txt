@@ -1,0 +1,127 @@
+Humanitarian-Data-Schema-Analyser-/
+|-- benchmarks/
+|   |-- outputs/
+|   |   \-- accuracy_results.json
+|   \-- metric_runner.py
+|-- data/
+|   |-- sample.csv
+|   |-- sample.json
+|   |-- sample.xml
+|   |-- sample_hxl.csv
+|   \-- sample_xlsform.xlsx
+|-- docs/
+|   |-- _static/
+|   |   \-- .gitkeep
+|   |-- _templates/
+|   |   \-- .gitkeep
+|   |-- api/
+|   |   |-- cli.rst
+|   |   |-- modules.rst
+|   |   |-- parsers.rst
+|   |   |-- profiling.rst
+|   |   |-- reports.rst
+|   |   \-- schema.rst
+|   |-- evaluation/
+|   |   \-- evaluation_plan.md
+|   |-- figures/
+|   |   \-- README.md
+|   |-- report/
+|   |   \-- report_draft.md
+|   |-- conf.py
+|   |-- index.rst
+|   |-- installation.rst
+|   |-- make.bat
+|   |-- Makefile
+|   |-- packaging.md
+|   |-- requirements.txt
+|   \-- usage.rst
+|-- Proposal/
+|   |-- BwangaNyirendaProposal2026.docx
+|   \-- extracted_proposal.txt
+|-- src/
+|   \-- humanitarian_schema_analyzer/
+|       |-- cli/
+|       |   |-- __init__.py
+|       |   \-- main.py
+|       |-- parsers/
+|       |   |-- __init__.py
+|       |   |-- base_parser.py
+|       |   |-- csv_parser.py
+|       |   |-- factory.py
+|       |   |-- json_parser.py
+|       |   |-- xls_parser.py
+|       |   \-- xml_parser.py
+|       |-- profiling/
+|       |   |-- __init__.py
+|       |   \-- profiler.py
+|       |-- reports/
+|       |   |-- __init__.py
+|       |   \-- html_report.py
+|       |-- schema/
+|       |   |-- __init__.py
+|       |   |-- schema_builder.py
+|       |   |-- unified_model.py
+|       |   \-- unifier.py
+|       \-- __init__.py
+|-- tests/
+|   |-- fixtures/
+|   |   |-- AI_generated_datasets/
+|   |   |   |-- FYP_datasets/
+|   |   |   |   |-- tests/fixtures/benchmarks/
+|   |   |   |   |   |-- benchmark_hxl_1mb.csv
+|   |   |   |   |   |-- benchmark_iati_5mb.xml
+|   |   |   |   |   |-- benchmark_json_5mb.json
+|   |   |   |   |   |-- benchmark_std_10mb.csv
+|   |   |   |   |   |-- benchmark_std_5mb.csv
+|   |   |   |   |   \-- benchmark_xlsform_2.5mb.xlsx
+|   |   |   |   \-- generated_datasets.py
+|   |   |   |-- benchmark_runner.py
+|   |   |   \-- benchmarkrunner_results.txt
+|   |   |-- groundtruth/
+|   |   |   \-- drc_ebola_cases_consolidated_groundtruth.json
+|   |   |-- drc_ebola_cases_consolidated.csv
+|   |   |-- drc_ebola_cases_consolidated_csv_source_size_licence.txt
+|   |   |-- drc_ebola_cases_consolidated_report.html
+|   |   |-- numeric_strings.json
+|   |   |-- sample.csv
+|   |   |-- sample.json
+|   |   |-- sample.xlsx
+|   |   |-- sample.xml
+|   |   |-- sample_hxl.csv
+|   |   |-- sample_iati.xml
+|   |   \-- sample_xlsform.xlsx
+|   |-- __init__.py
+|   |-- test_cli.py
+|   |-- test_csv_parser.py
+|   |-- test_hxl_type_inference.py
+|   |-- test_json_parser.py
+|   |-- test_profiler.py
+|   |-- test_schema_builder.py
+|   |-- test_unifier.py
+|   |-- test_validation.py
+|   |-- test_xls_parser.py
+|   \-- test_xml_parser.py
+|-- .gitattributes
+|-- .gitignore
+|-- CHANGELOG.md
+|-- drc_ebola_cases_consolidated.html
+|-- drc_ebola_cases_consolidated_report.html
+|-- drc_ebola_cases_consolidated_shema.json
+|-- FINAL_YEAR_PROJECT_REPORT.md
+|-- hds structure.txt
+|-- LICENSE
+|-- my_report.html
+|-- my_schema.json
+|-- pyproject.toml
+|-- pytest_log.txt
+|-- README.md
+|-- requirements.txt
+|-- schema_csv.json
+|-- schema_hxl.json
+|-- schema_json.json
+|-- schema_xls.json
+|-- schema_xml.json
+\-- schema1_schema2_unified.json
+
+Generated folders and local environments such as .git/, humanitarian_env/,
+.pytest_cache/, __pycache__/, dist/, and docs/_build/ are omitted.

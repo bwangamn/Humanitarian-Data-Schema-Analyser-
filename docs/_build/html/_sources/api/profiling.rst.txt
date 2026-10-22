@@ -4,7 +4,7 @@ Profiling Package
 Data Profiler Engine
 --------------------
 
-.. automodule:: profiling.profiler
+.. automodule:: humanitarian_schema_analyzer.profiling.profiler
    :members:
    :undoc-members:
    :show-inheritance:

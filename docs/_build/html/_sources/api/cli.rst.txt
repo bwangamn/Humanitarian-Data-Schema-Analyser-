@@ -1,7 +1,7 @@
 CLI Module
 ==========
 
-.. automodule:: cli.main
+.. automodule:: humanitarian_schema_analyzer.cli.main
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,0 +1,19 @@
+///////////////////////////////////////////////////////////////////////////////////////////
+analysing xml file formats, producing an html report and a json schema
+////////////////////////////////////////////////////////////////////////////////////////////
+hds-analyzer analyze C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_xml.xml --output C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_xml.html --schema-output C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_xml.json
+
+//////////////////////////////////////////////////////////////////////////////////////////
+analysing csv file formats, producing an html report and a json schema
+//////////////////////////////////////////////////////////////////////////////////////////
+hds-analyzer analyze C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_csv.csv --output C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_csv.html --schema-output C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_csv.json
+
+///////////////////////////////////////////////////////////////////////////////////////////
+unifying(merging)
+///////////////////////////////////////////////////////////////////////////////////////////
+hds-analyzer unify C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_csv.json C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_xml.json
+
+///////////////////////////////////////////////////////////////////////////////////////////
+analyzation of schema post analysis
+///////////////////////////////////////////////////////////////////////////////////////////
+hds-analyzer analyze C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_csv_drc_ebola_cases_consolidated_xml_unified.json --output C:\Users\DELL\OneDrive\Desktop\Final_Year_Project\Humanitarian-Data-Schema-Analyser-\tests\fixtures\drc_ebola_cases_consolidated_csv_drc_ebola_cases_consolidated_xml_unified_html_analysis_report.html
