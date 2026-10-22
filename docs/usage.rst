@@ -69,8 +69,12 @@ field name and type match in both inputs, the property is retained once and its
 property metadata, values from the first schema take precedence while
 properties present only in the second schema are retained. When matching field
 names have different types, the output keeps both values as a JSON Schema type
-array, such as ``["integer", "string"]``, and prints a warning. The output
-combines and deduplicates the two ``required`` arrays. Missing files,
+array, such as ``["integer", "string"]``, and prints a warning. The merged
+``required`` array lists only the fields required by both schemas, so a record
+valid under either input schema is not rejected for lacking a field the other
+schema requires. Fields are merged only when their names are identical, unless a
+two-column CSV (``schema1_field,schema2_field``) is passed with ``--mapping``
+to name fields that should be treated as the same. Missing files,
 unreadable files, malformed JSON, invalid ``properties`` or ``required``
 sections, and non-object JSON documents result in a clear CLI error message and
 a non-zero exit code.

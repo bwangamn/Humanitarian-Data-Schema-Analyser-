@@ -5,6 +5,18 @@ All notable changes to the **Humanitarian Data Schema Analyzer** project will be
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.2] - 2026-10-22
+
+### Added
+- **Field Mapping for `unify`**: `hds-analyzer unify --mapping <file.csv>` accepts a two-column CSV (`schema1_field,schema2_field`) so that differently named fields, such as `age` and `child_age`, are merged into one field. Mapping rows that name a field missing from the second schema produce a warning.
+- **Tests**: `tests/test_unifier.py` covers mapping, unmapped renamed fields, the required-field rule and malformed mapping files. `tests/test_html_report.py` checks that HTML-like input is escaped.
+
+### Fixed
+- **HTML Report Escaping**: Column names, HXL tags, sample values, type names, format names and the embedded JSON Schema are now written with `html.escape`, so a data file containing HTML-like text can no longer change the report page.
+- **Merged `required` List**: The unified schema now lists only fields required by both input schemas (after mapping), instead of the union. Previously a record valid under one schema could fail the merged schema.
+- **Version Strings**: `__version__` in `__init__.py` now matches `pyproject.toml`, and the README badge reads the version from PyPI.
+- **Reproducible Benchmark Data**: `generated_datasets.py` sets a fixed random seed (2026).
+
 ## [0.2.1] - 2026-10-17
 
 ### Added
@@ -41,6 +53,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Schema Builder Strategy A**: Numeric-looking string columns preserve `"type": "string"` with `x-numeric-string` and `x-potential-type` metadata annotations. Observed min/max values are emitted as `x-observed-minimum`/`x-observed-maximum` metadata instead of rigid validation constraints.
 - **Test Suite Expansion**: Test suite expanded from 13 to 60 automated test cases across all parsers, profiler, schema builder, CLI, and cross-format validation.
 - **Report Documentation**: Updated `FINAL_YEAR_PROJECT_REPORT.md` Section 5.6 and Table 6.1 with the XML repeated element defect fix documentation and new test entries.
+
+## [0.1.1] - 2026-10-12
+
+### Fixed
+- **XLSForm Parsing**: Survey questions are extracted as dataset fields.
+- **XML Parsing**: Nested elements, repeated tags and attributes are preserved.
+- **Schema Builder**: Original input types are preserved, and observed statistics are kept separate from validation constraints.
 
 ## [0.1.0] - 2026-09-30
 
