@@ -211,7 +211,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>74</td>
-                        <td><small>{'location_name': 'Mongbalu', 'name_as_reported': 'Mongbwalu', 'location_code': {'@type': 'pcode', '#text': 'CD540510'}, 'province': 'Ituri', 'population_estimate': '78500'}, {'location_name': 'République démocratique du Congo', 'name_as_reported': 'DRC', 'location_code': {'@type': 'iso3', '#text': 'COD'}, 'province': 'National', 'population_estimate': '181500'}, {'location_name': 'Bunia', 'name_as_reported': 'Bunia', 'location_code': {'@type': 'pcode', '#text': 'CD540202'}, 'province': 'Ituri', 'population_estimate': '275000'}</small></td>
+                        <td><small>{&#x27;location_name&#x27;: &#x27;Mongbalu&#x27;, &#x27;name_as_reported&#x27;: &#x27;Mongbwalu&#x27;, &#x27;location_code&#x27;: {&#x27;@type&#x27;: &#x27;pcode&#x27;, &#x27;#text&#x27;: &#x27;CD540510&#x27;}, &#x27;province&#x27;: &#x27;Ituri&#x27;, &#x27;population_estimate&#x27;: &#x27;78500&#x27;}, {&#x27;location_name&#x27;: &#x27;République démocratique du Congo&#x27;, &#x27;name_as_reported&#x27;: &#x27;DRC&#x27;, &#x27;location_code&#x27;: {&#x27;@type&#x27;: &#x27;iso3&#x27;, &#x27;#text&#x27;: &#x27;COD&#x27;}, &#x27;province&#x27;: &#x27;National&#x27;, &#x27;population_estimate&#x27;: &#x27;181500&#x27;}, {&#x27;location_name&#x27;: &#x27;Bunia&#x27;, &#x27;name_as_reported&#x27;: &#x27;Bunia&#x27;, &#x27;location_code&#x27;: {&#x27;@type&#x27;: &#x27;pcode&#x27;, &#x27;#text&#x27;: &#x27;CD540202&#x27;}, &#x27;province&#x27;: &#x27;Ituri&#x27;, &#x27;population_estimate&#x27;: &#x27;275000&#x27;}</small></td>
                     </tr>
                     <tr>
                         <td><strong>report_date</strong></td>
@@ -310,7 +310,7 @@
                         <td>11487</td>
                         <td><span class="badge badge-warn">99.95%</span></td>
                         <td>6</td>
-                        <td><small>Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.</small></td>
+                        <td><small>Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.</small></td>
                     </tr>
                 </tbody>
             </table>
@@ -319,200 +319,200 @@
         <div class="table-card">
             <h2>Standardised JSON Schema (Draft 2020-12)</h2>
             <pre>{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Humanitarian Dataset Schema (XML)",
-    "type": "object",
-    "properties": {
-        "@id": {
-            "type": "string",
-            "examples": [
-                "ER-000001",
-                "ER-000002",
-                "ER-000003"
+    &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
+    &quot;title&quot;: &quot;Humanitarian Dataset Schema (XML)&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;@id&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;ER-000001&quot;,
+                &quot;ER-000002&quot;,
+                &quot;ER-000003&quot;
             ]
         },
-        "country_iso3": {
-            "type": "string",
-            "examples": [
-                "COD"
+        &quot;country_iso3&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;COD&quot;
             ]
         },
-        "admin_level": {
-            "type": "string",
-            "examples": [
-                "health_zone",
-                "national"
+        &quot;admin_level&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;health_zone&quot;,
+                &quot;national&quot;
             ]
         },
-        "location": {
-            "type": "object",
-            "properties": {
-                "location_name": {
-                    "type": "string"
+        &quot;location&quot;: {
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+                &quot;location_name&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
                 },
-                "name_as_reported": {
-                    "type": "string"
+                &quot;name_as_reported&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
                 },
-                "location_code": {
-                    "type": "object",
-                    "properties": {
-                        "@type": {
-                            "type": "string"
+                &quot;location_code&quot;: {
+                    &quot;type&quot;: &quot;object&quot;,
+                    &quot;properties&quot;: {
+                        &quot;@type&quot;: {
+                            &quot;type&quot;: &quot;string&quot;
                         },
-                        "#text": {
-                            "type": "string"
+                        &quot;#text&quot;: {
+                            &quot;type&quot;: &quot;string&quot;
                         }
                     }
                 },
-                "province": {
-                    "type": "string"
+                &quot;province&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
                 },
-                "population_estimate": {
-                    "type": "string"
+                &quot;population_estimate&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
                 }
             },
-            "examples": [
+            &quot;examples&quot;: [
                 {
-                    "location_name": "Mongbalu",
-                    "name_as_reported": "Mongbwalu",
-                    "location_code": {
-                        "@type": "pcode",
-                        "#text": "CD540510"
+                    &quot;location_name&quot;: &quot;Mongbalu&quot;,
+                    &quot;name_as_reported&quot;: &quot;Mongbwalu&quot;,
+                    &quot;location_code&quot;: {
+                        &quot;@type&quot;: &quot;pcode&quot;,
+                        &quot;#text&quot;: &quot;CD540510&quot;
                     },
-                    "province": "Ituri",
-                    "population_estimate": "78500"
+                    &quot;province&quot;: &quot;Ituri&quot;,
+                    &quot;population_estimate&quot;: &quot;78500&quot;
                 },
                 {
-                    "location_name": "R\u00e9publique d\u00e9mocratique du Congo",
-                    "name_as_reported": "DRC",
-                    "location_code": {
-                        "@type": "iso3",
-                        "#text": "COD"
+                    &quot;location_name&quot;: &quot;R\u00e9publique d\u00e9mocratique du Congo&quot;,
+                    &quot;name_as_reported&quot;: &quot;DRC&quot;,
+                    &quot;location_code&quot;: {
+                        &quot;@type&quot;: &quot;iso3&quot;,
+                        &quot;#text&quot;: &quot;COD&quot;
                     },
-                    "province": "National",
-                    "population_estimate": "181500"
+                    &quot;province&quot;: &quot;National&quot;,
+                    &quot;population_estimate&quot;: &quot;181500&quot;
                 },
                 {
-                    "location_name": "Bunia",
-                    "name_as_reported": "Bunia",
-                    "location_code": {
-                        "@type": "pcode",
-                        "#text": "CD540202"
+                    &quot;location_name&quot;: &quot;Bunia&quot;,
+                    &quot;name_as_reported&quot;: &quot;Bunia&quot;,
+                    &quot;location_code&quot;: {
+                        &quot;@type&quot;: &quot;pcode&quot;,
+                        &quot;#text&quot;: &quot;CD540202&quot;
                     },
-                    "province": "Ituri",
-                    "population_estimate": "275000"
+                    &quot;province&quot;: &quot;Ituri&quot;,
+                    &quot;population_estimate&quot;: &quot;275000&quot;
                 }
             ]
         },
-        "report_date": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-                "14/05/2026",
-                "15/05/2026",
-                "17/05/2026"
+        &quot;report_date&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;format&quot;: &quot;date&quot;,
+            &quot;examples&quot;: [
+                &quot;14/05/2026&quot;,
+                &quot;15/05/2026&quot;,
+                &quot;17/05/2026&quot;
             ]
         },
-        "indicator": {
-            "type": "string",
-            "examples": [
-                "case",
-                "contact_traced",
-                "death"
+        &quot;indicator&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;case&quot;,
+                &quot;contact_traced&quot;,
+                &quot;death&quot;
             ]
         },
-        "case_classification": {
-            "type": [
-                "string",
-                "null"
+        &quot;case_classification&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "confirmed",
-                "suspected"
+            &quot;examples&quot;: [
+                &quot;confirmed&quot;,
+                &quot;suspected&quot;
             ]
         },
-        "time_period": {
-            "type": "string",
-            "examples": [
-                "cumulative"
+        &quot;time_period&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;cumulative&quot;
             ]
         },
-        "case_count": {
-            "type": "string",
-            "x-numeric-string": true,
-            "x-potential-type": "integer",
-            "examples": [
-                "0",
-                "82",
-                "57"
+        &quot;case_count&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;x-numeric-string&quot;: true,
+            &quot;x-potential-type&quot;: &quot;integer&quot;,
+            &quot;examples&quot;: [
+                &quot;0&quot;,
+                &quot;82&quot;,
+                &quot;57&quot;
             ]
         },
-        "unit": {
-            "type": "string",
-            "examples": [
-                "count"
+        &quot;unit&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;count&quot;
             ]
         },
-        "alert_level": {
-            "type": "string",
-            "examples": [
-                "low",
-                "high",
-                "medium"
+        &quot;alert_level&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;low&quot;,
+                &quot;high&quot;,
+                &quot;medium&quot;
             ]
         },
-        "data_provider": {
-            "type": "string",
-            "examples": [
-                "INRB-UMIE",
-                "SitRep MVEBDB N\u00b0083, 06/08/2026",
-                "SitRep MVEBDB N\u00b0085, 07/08/2026"
+        &quot;data_provider&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;INRB-UMIE&quot;,
+                &quot;SitRep MVEBDB N\u00b0083, 06/08/2026&quot;,
+                &quot;SitRep MVEBDB N\u00b0085, 07/08/2026&quot;
             ]
         },
-        "source_link": {
-            "type": [
-                "string",
-                "null"
+        &quot;source_link&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv",
-                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv",
-                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv"
+            &quot;examples&quot;: [
+                &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv&quot;,
+                &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv&quot;,
+                &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv&quot;
             ]
         },
-        "quality_check": {
-            "type": [
-                "string",
-                "null"
+        &quot;quality_check&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "manually transcribed"
+            &quot;examples&quot;: [
+                &quot;manually transcribed&quot;
             ]
         },
-        "comment": {
-            "type": [
-                "string",
-                "null"
+        &quot;comment&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."
+            &quot;examples&quot;: [
+                &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;,
+                &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;,
+                &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.&quot;
             ]
         }
     },
-    "required": [
-        "@id",
-        "country_iso3",
-        "admin_level",
-        "location",
-        "report_date",
-        "indicator",
-        "time_period",
-        "case_count",
-        "unit",
-        "alert_level",
-        "data_provider"
+    &quot;required&quot;: [
+        &quot;@id&quot;,
+        &quot;country_iso3&quot;,
+        &quot;admin_level&quot;,
+        &quot;location&quot;,
+        &quot;report_date&quot;,
+        &quot;indicator&quot;,
+        &quot;time_period&quot;,
+        &quot;case_count&quot;,
+        &quot;unit&quot;,
+        &quot;alert_level&quot;,
+        &quot;data_provider&quot;
     ]
 }</pre>
         </div>

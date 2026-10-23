@@ -9,12 +9,17 @@
       ]
     },
     "location_level": {
-      "type": "integer",
+      "type": [
+        "integer",
+        "string"
+      ],
       "x-observed-minimum": 0.0,
       "x-observed-maximum": 3.0,
       "examples": [
         3,
-        0
+        0,
+        "health_zone",
+        "national"
       ]
     },
     "location_name": {
@@ -64,7 +69,10 @@
       "examples": [
         "2026-05-14",
         "2026-05-15",
-        "2026-05-17"
+        "2026-05-17",
+        "14/05/2026",
+        "15/05/2026",
+        "17/05/2026"
       ]
     },
     "measure": {
@@ -72,7 +80,10 @@
       "examples": [
         "cases",
         "contacts",
-        "deaths"
+        "deaths",
+        "case",
+        "contact_traced",
+        "death"
       ]
     },
     "case_classification": {
@@ -92,14 +103,22 @@
       ]
     },
     "value": {
-      "type": "integer",
+      "type": [
+        "integer",
+        "string"
+      ],
       "x-observed-minimum": 0.0,
       "x-observed-maximum": 8728.0,
       "examples": [
         0,
         82,
-        57
-      ]
+        57,
+        "0",
+        "82",
+        "57"
+      ],
+      "x-numeric-string": true,
+      "x-potential-type": "integer"
     },
     "unit": {
       "type": "string",
@@ -162,7 +181,8 @@
         "null"
       ],
       "examples": [
-        "manual"
+        "manual",
+        "manually transcribed"
       ]
     },
     "notes": {
@@ -182,19 +202,6 @@
         "ER-000001",
         "ER-000002",
         "ER-000003"
-      ]
-    },
-    "country_iso3": {
-      "type": "string",
-      "examples": [
-        "COD"
-      ]
-    },
-    "admin_level": {
-      "type": "string",
-      "examples": [
-        "health_zone",
-        "national"
       ]
     },
     "location": {
@@ -257,33 +264,6 @@
         }
       ]
     },
-    "report_date": {
-      "type": "string",
-      "format": "date",
-      "examples": [
-        "14/05/2026",
-        "15/05/2026",
-        "17/05/2026"
-      ]
-    },
-    "indicator": {
-      "type": "string",
-      "examples": [
-        "case",
-        "contact_traced",
-        "death"
-      ]
-    },
-    "case_count": {
-      "type": "string",
-      "x-numeric-string": true,
-      "x-potential-type": "integer",
-      "examples": [
-        "0",
-        "82",
-        "57"
-      ]
-    },
     "alert_level": {
       "type": "string",
       "examples": [
@@ -291,65 +271,16 @@
         "high",
         "medium"
       ]
-    },
-    "data_provider": {
-      "type": "string",
-      "examples": [
-        "INRB-UMIE",
-        "SitRep MVEBDB N\u00b0083, 06/08/2026",
-        "SitRep MVEBDB N\u00b0085, 07/08/2026"
-      ]
-    },
-    "source_link": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "examples": [
-        "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv",
-        "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv",
-        "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv"
-      ]
-    },
-    "quality_check": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "examples": [
-        "manually transcribed"
-      ]
-    },
-    "comment": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "examples": [
-        "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-        "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-        "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."
-      ]
     }
   },
   "required": [
     "location_country",
     "location_level",
-    "location_code_type",
     "reference_date",
     "measure",
     "time_period",
     "value",
     "unit",
-    "source",
-    "@id",
-    "country_iso3",
-    "admin_level",
-    "location",
-    "report_date",
-    "indicator",
-    "case_count",
-    "alert_level",
-    "data_provider"
+    "source"
   ]
 }
