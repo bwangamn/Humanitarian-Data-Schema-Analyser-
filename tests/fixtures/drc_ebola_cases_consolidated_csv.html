@@ -364,7 +364,7 @@
                         <td>10965</td>
                         <td><span class="badge badge-warn">99.95%</span></td>
                         <td>6</td>
-                        <td><small>Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.</small></td>
+                        <td><small>Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF., Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.</small></td>
                     </tr>
                 </tbody>
             </table>
@@ -373,195 +373,195 @@
         <div class="table-card">
             <h2>Standardised JSON Schema (Draft 2020-12)</h2>
             <pre>{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Humanitarian Dataset Schema (CSV)",
-    "type": "object",
-    "properties": {
-        "location_country": {
-            "type": "string",
-            "examples": [
-                "COD"
+    &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
+    &quot;title&quot;: &quot;Humanitarian Dataset Schema (CSV)&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;location_country&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;COD&quot;
             ]
         },
-        "location_level": {
-            "type": "integer",
-            "x-observed-minimum": 0.0,
-            "x-observed-maximum": 3.0,
-            "examples": [
+        &quot;location_level&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;x-observed-minimum&quot;: 0.0,
+            &quot;x-observed-maximum&quot;: 3.0,
+            &quot;examples&quot;: [
                 3,
                 0
             ]
         },
-        "location_name": {
-            "type": [
-                "string",
-                "null"
+        &quot;location_name&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "Mongbalu",
-                "R\u00e9publique d\u00e9mocratique du Congo",
-                "Bunia"
+            &quot;examples&quot;: [
+                &quot;Mongbalu&quot;,
+                &quot;R\u00e9publique d\u00e9mocratique du Congo&quot;,
+                &quot;Bunia&quot;
             ]
         },
-        "location_name_source": {
-            "type": [
-                "string",
-                "null"
+        &quot;location_name_source&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "Mongbwalu",
-                "DRC",
-                "Bunia"
+            &quot;examples&quot;: [
+                &quot;Mongbwalu&quot;,
+                &quot;DRC&quot;,
+                &quot;Bunia&quot;
             ]
         },
-        "location_code": {
-            "type": [
-                "string",
-                "null"
+        &quot;location_code&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "CD540510",
-                "COD",
-                "CD540202"
+            &quot;examples&quot;: [
+                &quot;CD540510&quot;,
+                &quot;COD&quot;,
+                &quot;CD540202&quot;
             ]
         },
-        "location_code_type": {
-            "type": "string",
-            "examples": [
-                "pcode",
-                "iso3",
-                "name"
+        &quot;location_code_type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;pcode&quot;,
+                &quot;iso3&quot;,
+                &quot;name&quot;
             ]
         },
-        "reference_date": {
-            "type": "string",
-            "format": "date",
-            "examples": [
-                "2026-05-14",
-                "2026-05-15",
-                "2026-05-17"
+        &quot;reference_date&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;format&quot;: &quot;date&quot;,
+            &quot;examples&quot;: [
+                &quot;2026-05-14&quot;,
+                &quot;2026-05-15&quot;,
+                &quot;2026-05-17&quot;
             ]
         },
-        "measure": {
-            "type": "string",
-            "examples": [
-                "cases",
-                "contacts",
-                "deaths"
+        &quot;measure&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;cases&quot;,
+                &quot;contacts&quot;,
+                &quot;deaths&quot;
             ]
         },
-        "case_classification": {
-            "type": [
-                "string",
-                "null"
+        &quot;case_classification&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "confirmed",
-                "suspected"
+            &quot;examples&quot;: [
+                &quot;confirmed&quot;,
+                &quot;suspected&quot;
             ]
         },
-        "time_period": {
-            "type": "string",
-            "examples": [
-                "cumulative"
+        &quot;time_period&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;cumulative&quot;
             ]
         },
-        "value": {
-            "type": "integer",
-            "x-observed-minimum": 0.0,
-            "x-observed-maximum": 8728.0,
-            "examples": [
+        &quot;value&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;x-observed-minimum&quot;: 0.0,
+            &quot;x-observed-maximum&quot;: 8728.0,
+            &quot;examples&quot;: [
                 0,
                 82,
                 57
             ]
         },
-        "unit": {
-            "type": "string",
-            "examples": [
-                "count"
+        &quot;unit&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;count&quot;
             ]
         },
-        "source": {
-            "type": "string",
-            "examples": [
-                "INRB-UMIE",
-                "SitRep MVEBDB N\u00b0083, 06/08/2026",
-                "SitRep MVEBDB N\u00b0085, 07/08/2026"
+        &quot;source&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;INRB-UMIE&quot;,
+                &quot;SitRep MVEBDB N\u00b0083, 06/08/2026&quot;,
+                &quot;SitRep MVEBDB N\u00b0085, 07/08/2026&quot;
             ]
         },
-        "source_url": {
-            "type": [
-                "string",
-                "null"
+        &quot;source_url&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv",
-                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv",
-                "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv"
+            &quot;examples&quot;: [
+                &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv&quot;,
+                &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv&quot;,
+                &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv&quot;
             ]
         },
-        "source_indicator_name": {
-            "type": [
-                "string",
-                "null"
+        &quot;source_indicator_name&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ]
         },
-        "indicator_label": {
-            "type": [
-                "string",
-                "null"
+        &quot;indicator_label&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ]
         },
-        "reporting_period_start": {
-            "type": [
-                "string",
-                "null"
+        &quot;reporting_period_start&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ]
         },
-        "reporting_period_end": {
-            "type": [
-                "string",
-                "null"
+        &quot;reporting_period_end&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ]
         },
-        "last_updated": {
-            "type": [
-                "string",
-                "null"
+        &quot;last_updated&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ]
         },
-        "data_quality_flag": {
-            "type": [
-                "string",
-                "null"
+        &quot;data_quality_flag&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "manual"
+            &quot;examples&quot;: [
+                &quot;manual&quot;
             ]
         },
-        "notes": {
-            "type": [
-                "string",
-                "null"
+        &quot;notes&quot;: {
+            &quot;type&quot;: [
+                &quot;string&quot;,
+                &quot;null&quot;
             ],
-            "examples": [
-                "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."
+            &quot;examples&quot;: [
+                &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;,
+                &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;,
+                &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.&quot;
             ]
         }
     },
-    "required": [
-        "location_country",
-        "location_level",
-        "location_code_type",
-        "reference_date",
-        "measure",
-        "time_period",
-        "value",
-        "unit",
-        "source"
+    &quot;required&quot;: [
+        &quot;location_country&quot;,
+        &quot;location_level&quot;,
+        &quot;location_code_type&quot;,
+        &quot;reference_date&quot;,
+        &quot;measure&quot;,
+        &quot;time_period&quot;,
+        &quot;value&quot;,
+        &quot;unit&quot;,
+        &quot;source&quot;
     ]
 }</pre>
         </div>

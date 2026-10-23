@@ -171,3 +171,28 @@ def test_unify_rejects_malformed_mapping(tmp_path: Path, monkeypatch: Any) -> No
 
     assert result.exit_code == 1
     assert "two non-empty columns" in result.output
+
+
+def test_unify_ebola_demo_schemas_with_mapping(tmp_path: Path, monkeypatch: Any) -> None:
+    """The committed Ebola CSV and XML schemas merge into 24 fields with the demo mapping, 33 without."""
+    root = Path(__file__).resolve().parent.parent
+    csv_schema = root / "tests" / "fixtures" / "drc_ebola_cases_consolidated_csv.json"
+    xml_schema = root / "tests" / "fixtures" / "drc_ebola_cases_consolidated_xml.json"
+    mapping = root / "data" / "demo" / "drc_ebola_field_mapping.csv"
+    monkeypatch.chdir(tmp_path)
+    unified = tmp_path / "drc_ebola_cases_consolidated_csv_drc_ebola_cases_consolidated_xml_unified.json"
+
+    result = runner.invoke(app, ["unify", str(csv_schema), str(xml_schema)])
+    assert result.exit_code == 0, result.output
+    assert len(json.loads(unified.read_text(encoding="utf-8"))["properties"]) == 33
+
+    result = runner.invoke(app, ["unify", str(csv_schema), str(xml_schema), "-m", str(mapping)])
+    assert result.exit_code == 0, result.output
+    output = json.loads(unified.read_text(encoding="utf-8"))
+    assert len(output["properties"]) == 24
+    assert "location_country" in output["properties"]
+    assert "country_iso3" not in output["properties"]
+    assert output["required"] == [
+        "location_country", "location_level", "reference_date", "measure",
+        "time_period", "value", "unit", "source",
+    ]

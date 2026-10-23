@@ -5,7 +5,7 @@ All notable changes to the **Humanitarian Data Schema Analyzer** project will be
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.2] - 2026-10-22
+## [0.2.3] - 2026-10-23
 
 ### Added
 - **Field Mapping for `unify`**: `hds-analyzer unify --mapping <file.csv>` accepts a two-column CSV (`schema1_field,schema2_field`) so that differently named fields, such as `age` and `child_age`, are merged into one field. Mapping rows that name a field missing from the second schema produce a warning.
@@ -16,6 +16,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Merged `required` List**: The unified schema now lists only fields required by both input schemas (after mapping), instead of the union. Previously a record valid under one schema could fail the merged schema.
 - **Version Strings**: `__version__` in `__init__.py` now matches `pyproject.toml`, and the README badge reads the version from PyPI.
 - **Reproducible Benchmark Data**: `generated_datasets.py` sets a fixed random seed (2026).
+- **Demonstration Fixtures**: The unified schema for the DRC Ebola CSV and XML fixtures (`tests/fixtures/drc_ebola_cases_consolidated_csv_drc_ebola_cases_consolidated_xml_unified.json`) is regenerated with `data/demo/drc_ebola_field_mapping.csv` and the required-field rule, and a test (`test_unify_ebola_demo_schemas_with_mapping`) checks it.
+- **Test Evidence**: `pytest_log.txt` is the verbose log of the full suite at this release.
+
+### Note
+- Version 0.2.2 contained the same source code as 0.2.1; the features and fixes above were committed after the 0.2.2 tag and are first released in 0.2.3.
+
+## [0.2.2] - 2026-10-22
+
+### Changed
+- **Release Metadata**: Republished the 0.2.1 source code under a new version number.
+- **Demonstration Data**: Added the DRC Ebola CSV and a synthetic XML version of it, their analysis outputs and a first unified schema, and renamed the CSV fixture to `drc_ebola_cases_consolidated_csv.csv`.
+- **Documentation**: Updated the documentation to describe the unify command.
 
 ## [0.2.1] - 2026-10-17
 

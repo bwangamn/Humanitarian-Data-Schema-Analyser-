@@ -150,7 +150,7 @@
             </div>
             <div class="card">
                 <div class="metric-title">Total Columns</div>
-                <div class="metric-value">79</div>
+                <div class="metric-value">60</div>
             </div>
             <div class="card">
                 <div class="metric-title">Data Completeness</div>
@@ -202,7 +202,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['location_country', 'location_level', 'location_code_type', 'reference_date', 'measure', 'time_period', 'value', 'unit', 'source', '@id', 'country_iso3', 'admin_level', 'location', 'report_date', 'indicator', 'case_count', 'alert_level', 'data_provider']</small></td>
+                        <td><small>[&#x27;location_country&#x27;, &#x27;location_level&#x27;, &#x27;reference_date&#x27;, &#x27;measure&#x27;, &#x27;time_period&#x27;, &#x27;value&#x27;, &#x27;unit&#x27;, &#x27;source&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_country.type</strong></td>
@@ -220,16 +220,16 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['COD']</small></td>
+                        <td><small>[&#x27;COD&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_level.type</strong></td>
                         <td>-</td>
-                        <td><code>string</code></td>
+                        <td><code>array</code></td>
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>integer</small></td>
+                        <td><small>[&#x27;integer&#x27;, &#x27;string&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_level.x-observed-minimum</strong></td>
@@ -256,7 +256,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>[3, 0]</small></td>
+                        <td><small>[3, 0, &#x27;health_zone&#x27;, &#x27;national&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_name.type</strong></td>
@@ -265,7 +265,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_name.examples</strong></td>
@@ -274,7 +274,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['Mongbalu', 'République démocratique du Congo', 'Bunia']</small></td>
+                        <td><small>[&#x27;Mongbalu&#x27;, &#x27;République démocratique du Congo&#x27;, &#x27;Bunia&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_name_source.type</strong></td>
@@ -283,7 +283,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_name_source.examples</strong></td>
@@ -292,7 +292,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['Mongbwalu', 'DRC', 'Bunia']</small></td>
+                        <td><small>[&#x27;Mongbwalu&#x27;, &#x27;DRC&#x27;, &#x27;Bunia&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_code.type</strong></td>
@@ -301,7 +301,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_code.examples</strong></td>
@@ -310,7 +310,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['CD540510', 'COD', 'CD540202']</small></td>
+                        <td><small>[&#x27;CD540510&#x27;, &#x27;COD&#x27;, &#x27;CD540202&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location_code_type.type</strong></td>
@@ -328,7 +328,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['pcode', 'iso3', 'name']</small></td>
+                        <td><small>[&#x27;pcode&#x27;, &#x27;iso3&#x27;, &#x27;name&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.reference_date.type</strong></td>
@@ -355,7 +355,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['2026-05-14', '2026-05-15', '2026-05-17']</small></td>
+                        <td><small>[&#x27;2026-05-14&#x27;, &#x27;2026-05-15&#x27;, &#x27;2026-05-17&#x27;, &#x27;14/05/2026&#x27;, &#x27;15/05/2026&#x27;, &#x27;17/05/2026&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.measure.type</strong></td>
@@ -373,7 +373,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['cases', 'contacts', 'deaths']</small></td>
+                        <td><small>[&#x27;cases&#x27;, &#x27;contacts&#x27;, &#x27;deaths&#x27;, &#x27;case&#x27;, &#x27;contact_traced&#x27;, &#x27;death&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.case_classification.type</strong></td>
@@ -382,7 +382,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.case_classification.examples</strong></td>
@@ -391,7 +391,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['confirmed', 'suspected']</small></td>
+                        <td><small>[&#x27;confirmed&#x27;, &#x27;suspected&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.time_period.type</strong></td>
@@ -409,16 +409,16 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['cumulative']</small></td>
+                        <td><small>[&#x27;cumulative&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.value.type</strong></td>
                         <td>-</td>
-                        <td><code>string</code></td>
+                        <td><code>array</code></td>
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>integer</small></td>
+                        <td><small>[&#x27;integer&#x27;, &#x27;string&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.value.x-observed-minimum</strong></td>
@@ -445,7 +445,25 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>[0, 82, 57]</small></td>
+                        <td><small>[0, 82, 57, &#x27;0&#x27;, &#x27;82&#x27;, &#x27;57&#x27;]</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>properties.value.x-numeric-string</strong></td>
+                        <td>-</td>
+                        <td><code>boolean</code></td>
+                        <td>0</td>
+                        <td><span class="badge badge-good">0%</span></td>
+                        <td>1</td>
+                        <td><small>True</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>properties.value.x-potential-type</strong></td>
+                        <td>-</td>
+                        <td><code>string</code></td>
+                        <td>0</td>
+                        <td><span class="badge badge-good">0%</span></td>
+                        <td>1</td>
+                        <td><small>integer</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.unit.type</strong></td>
@@ -463,7 +481,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['count']</small></td>
+                        <td><small>[&#x27;count&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.source.type</strong></td>
@@ -481,7 +499,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['INRB-UMIE', 'SitRep MVEBDB N°083, 06/08/2026', 'SitRep MVEBDB N°085, 07/08/2026']</small></td>
+                        <td><small>[&#x27;INRB-UMIE&#x27;, &#x27;SitRep MVEBDB N°083, 06/08/2026&#x27;, &#x27;SitRep MVEBDB N°085, 07/08/2026&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.source_url.type</strong></td>
@@ -490,7 +508,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.source_url.examples</strong></td>
@@ -499,7 +517,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv', 'https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv', 'https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv']</small></td>
+                        <td><small>[&#x27;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv&#x27;, &#x27;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv&#x27;, &#x27;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.source_indicator_name.type</strong></td>
@@ -508,7 +526,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.indicator_label.type</strong></td>
@@ -517,7 +535,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.reporting_period_start.type</strong></td>
@@ -526,7 +544,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.reporting_period_end.type</strong></td>
@@ -535,7 +553,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.last_updated.type</strong></td>
@@ -544,7 +562,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.data_quality_flag.type</strong></td>
@@ -553,7 +571,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.data_quality_flag.examples</strong></td>
@@ -562,7 +580,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['manual']</small></td>
+                        <td><small>[&#x27;manual&#x27;, &#x27;manually transcribed&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.notes.type</strong></td>
@@ -571,7 +589,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['string', 'null']</small></td>
+                        <td><small>[&#x27;string&#x27;, &#x27;null&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.notes.examples</strong></td>
@@ -580,7 +598,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>["Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.", "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.", "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."]</small></td>
+                        <td><small>[&quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;, &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;, &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.&quot;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.@id.type</strong></td>
@@ -598,43 +616,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['ER-000001', 'ER-000002', 'ER-000003']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.country_iso3.type</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>string</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.country_iso3.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['COD']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.admin_level.type</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>string</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.admin_level.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['health_zone', 'national']</small></td>
+                        <td><small>[&#x27;ER-000001&#x27;, &#x27;ER-000002&#x27;, &#x27;ER-000003&#x27;]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.location.type</strong></td>
@@ -715,88 +697,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>[{'location_name': 'Mongbalu', 'name_as_reported': 'Mongbwalu', 'location_code': {'@type': 'pcode', '#text': 'CD540510'}, 'province': 'Ituri', 'population_estimate': '78500'}, {'location_name': 'République démocratique du Congo', 'name_as_reported': 'DRC', 'location_code': {'@type': 'iso3', '#text': 'COD'}, 'province': 'National', 'population_estimate': '181500'}, {'location_name': 'Bunia', 'name_as_reported': 'Bunia', 'location_code': {'@type': 'pcode', '#text': 'CD540202'}, 'province': 'Ituri', 'population_estimate': '275000'}]</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.report_date.type</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>string</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.report_date.format</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>date</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.report_date.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['14/05/2026', '15/05/2026', '17/05/2026']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.indicator.type</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>string</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.indicator.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['case', 'contact_traced', 'death']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.case_count.type</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>string</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.case_count.x-numeric-string</strong></td>
-                        <td>-</td>
-                        <td><code>boolean</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>True</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.case_count.x-potential-type</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>integer</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.case_count.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['0', '82', '57']</small></td>
+                        <td><small>[{&#x27;location_name&#x27;: &#x27;Mongbalu&#x27;, &#x27;name_as_reported&#x27;: &#x27;Mongbwalu&#x27;, &#x27;location_code&#x27;: {&#x27;@type&#x27;: &#x27;pcode&#x27;, &#x27;#text&#x27;: &#x27;CD540510&#x27;}, &#x27;province&#x27;: &#x27;Ituri&#x27;, &#x27;population_estimate&#x27;: &#x27;78500&#x27;}, {&#x27;location_name&#x27;: &#x27;République démocratique du Congo&#x27;, &#x27;name_as_reported&#x27;: &#x27;DRC&#x27;, &#x27;location_code&#x27;: {&#x27;@type&#x27;: &#x27;iso3&#x27;, &#x27;#text&#x27;: &#x27;COD&#x27;}, &#x27;province&#x27;: &#x27;National&#x27;, &#x27;population_estimate&#x27;: &#x27;181500&#x27;}, {&#x27;location_name&#x27;: &#x27;Bunia&#x27;, &#x27;name_as_reported&#x27;: &#x27;Bunia&#x27;, &#x27;location_code&#x27;: {&#x27;@type&#x27;: &#x27;pcode&#x27;, &#x27;#text&#x27;: &#x27;CD540202&#x27;}, &#x27;province&#x27;: &#x27;Ituri&#x27;, &#x27;population_estimate&#x27;: &#x27;275000&#x27;}]</small></td>
                     </tr>
                     <tr>
                         <td><strong>properties.alert_level.type</strong></td>
@@ -814,79 +715,7 @@
                         <td>0</td>
                         <td><span class="badge badge-good">0%</span></td>
                         <td>1</td>
-                        <td><small>['low', 'high', 'medium']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.data_provider.type</strong></td>
-                        <td>-</td>
-                        <td><code>string</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>string</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.data_provider.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['INRB-UMIE', 'SitRep MVEBDB N°083, 06/08/2026', 'SitRep MVEBDB N°085, 07/08/2026']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.source_link.type</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['string', 'null']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.source_link.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv', 'https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv', 'https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.quality_check.type</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['string', 'null']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.quality_check.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['manually transcribed']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.comment.type</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>['string', 'null']</small></td>
-                    </tr>
-                    <tr>
-                        <td><strong>properties.comment.examples</strong></td>
-                        <td>-</td>
-                        <td><code>array</code></td>
-                        <td>0</td>
-                        <td><span class="badge badge-good">0%</span></td>
-                        <td>1</td>
-                        <td><small>["Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.", "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.", "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."]</small></td>
+                        <td><small>[&#x27;low&#x27;, &#x27;high&#x27;, &#x27;medium&#x27;]</small></td>
                     </tr>
                 </tbody>
             </table>
@@ -895,920 +724,731 @@
         <div class="table-card">
             <h2>Standardised JSON Schema (Draft 2020-12)</h2>
             <pre>{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Humanitarian Dataset Schema (JSON)",
-    "type": "object",
-    "properties": {
-        "$schema": {
-            "type": "string",
-            "examples": [
-                "https://json-schema.org/draft/2020-12/schema"
+    &quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,
+    &quot;title&quot;: &quot;Humanitarian Dataset Schema (JSON)&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;$schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;https://json-schema.org/draft/2020-12/schema&quot;
             ]
         },
-        "type": {
-            "type": "string",
-            "examples": [
-                "object"
+        &quot;type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;object&quot;
             ]
         },
-        "required": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;required&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "location_country",
-                    "location_level",
-                    "location_code_type",
-                    "reference_date",
-                    "measure",
-                    "time_period",
-                    "value",
-                    "unit",
-                    "source",
-                    "@id",
-                    "country_iso3",
-                    "admin_level",
-                    "location",
-                    "report_date",
-                    "indicator",
-                    "case_count",
-                    "alert_level",
-                    "data_provider"
+                    &quot;location_country&quot;,
+                    &quot;location_level&quot;,
+                    &quot;reference_date&quot;,
+                    &quot;measure&quot;,
+                    &quot;time_period&quot;,
+                    &quot;value&quot;,
+                    &quot;unit&quot;,
+                    &quot;source&quot;
                 ]
             ]
         },
-        "properties.location_country.type": {
-            "type": "string",
-            "examples": [
-                "string"
+        &quot;properties.location_country.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
             ]
         },
-        "properties.location_country.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_country.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "COD"
+                    &quot;COD&quot;
                 ]
             ]
         },
-        "properties.location_level.type": {
-            "type": "string",
-            "examples": [
-                "integer"
+        &quot;properties.location_level.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;integer&quot;,
+                    &quot;string&quot;
+                ]
             ]
         },
-        "properties.location_level.x-observed-minimum": {
-            "type": "integer",
-            "x-observed-minimum": 0.0,
-            "x-observed-maximum": 0.0,
-            "examples": [
+        &quot;properties.location_level.x-observed-minimum&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;x-observed-minimum&quot;: 0.0,
+            &quot;x-observed-maximum&quot;: 0.0,
+            &quot;examples&quot;: [
                 0.0
             ]
         },
-        "properties.location_level.x-observed-maximum": {
-            "type": "integer",
-            "x-observed-minimum": 3.0,
-            "x-observed-maximum": 3.0,
-            "examples": [
+        &quot;properties.location_level.x-observed-maximum&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;x-observed-minimum&quot;: 3.0,
+            &quot;x-observed-maximum&quot;: 3.0,
+            &quot;examples&quot;: [
                 3.0
             ]
         },
-        "properties.location_level.examples": {
-            "type": "array",
-            "items": {
-                "type": "integer"
+        &quot;properties.location_level.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: [
+                    &quot;string&quot;,
+                    &quot;integer&quot;
+                ]
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
                     3,
-                    0
+                    0,
+                    &quot;health_zone&quot;,
+                    &quot;national&quot;
                 ]
             ]
         },
-        "properties.location_name.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_name.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "string",
-                    "null"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.location_name.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_name.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "Mongbalu",
-                    "R\u00e9publique d\u00e9mocratique du Congo",
-                    "Bunia"
+                    &quot;Mongbalu&quot;,
+                    &quot;R\u00e9publique d\u00e9mocratique du Congo&quot;,
+                    &quot;Bunia&quot;
                 ]
             ]
         },
-        "properties.location_name_source.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_name_source.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "string",
-                    "null"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.location_name_source.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_name_source.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "Mongbwalu",
-                    "DRC",
-                    "Bunia"
+                    &quot;Mongbwalu&quot;,
+                    &quot;DRC&quot;,
+                    &quot;Bunia&quot;
                 ]
             ]
         },
-        "properties.location_code.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_code.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "string",
-                    "null"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.location_code.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_code.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "CD540510",
-                    "COD",
-                    "CD540202"
+                    &quot;CD540510&quot;,
+                    &quot;COD&quot;,
+                    &quot;CD540202&quot;
                 ]
             ]
         },
-        "properties.location_code_type.type": {
-            "type": "string",
-            "examples": [
-                "string"
+        &quot;properties.location_code_type.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
             ]
         },
-        "properties.location_code_type.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.location_code_type.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "pcode",
-                    "iso3",
-                    "name"
+                    &quot;pcode&quot;,
+                    &quot;iso3&quot;,
+                    &quot;name&quot;
                 ]
             ]
         },
-        "properties.reference_date.type": {
-            "type": "string",
-            "examples": [
-                "string"
+        &quot;properties.reference_date.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
             ]
         },
-        "properties.reference_date.format": {
-            "type": "string",
-            "examples": [
-                "date"
+        &quot;properties.reference_date.format&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;date&quot;
             ]
         },
-        "properties.reference_date.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.reference_date.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "2026-05-14",
-                    "2026-05-15",
-                    "2026-05-17"
+                    &quot;2026-05-14&quot;,
+                    &quot;2026-05-15&quot;,
+                    &quot;2026-05-17&quot;,
+                    &quot;14/05/2026&quot;,
+                    &quot;15/05/2026&quot;,
+                    &quot;17/05/2026&quot;
                 ]
             ]
         },
-        "properties.measure.type": {
-            "type": "string",
-            "examples": [
-                "string"
+        &quot;properties.measure.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
             ]
         },
-        "properties.measure.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.measure.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "cases",
-                    "contacts",
-                    "deaths"
+                    &quot;cases&quot;,
+                    &quot;contacts&quot;,
+                    &quot;deaths&quot;,
+                    &quot;case&quot;,
+                    &quot;contact_traced&quot;,
+                    &quot;death&quot;
                 ]
             ]
         },
-        "properties.case_classification.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.case_classification.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "string",
-                    "null"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.case_classification.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.case_classification.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "confirmed",
-                    "suspected"
+                    &quot;confirmed&quot;,
+                    &quot;suspected&quot;
                 ]
             ]
         },
-        "properties.time_period.type": {
-            "type": "string",
-            "examples": [
-                "string"
+        &quot;properties.time_period.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
             ]
         },
-        "properties.time_period.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.time_period.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "cumulative"
+                    &quot;cumulative&quot;
                 ]
             ]
         },
-        "properties.value.type": {
-            "type": "string",
-            "examples": [
-                "integer"
+        &quot;properties.value.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;integer&quot;,
+                    &quot;string&quot;
+                ]
             ]
         },
-        "properties.value.x-observed-minimum": {
-            "type": "integer",
-            "x-observed-minimum": 0.0,
-            "x-observed-maximum": 0.0,
-            "examples": [
+        &quot;properties.value.x-observed-minimum&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;x-observed-minimum&quot;: 0.0,
+            &quot;x-observed-maximum&quot;: 0.0,
+            &quot;examples&quot;: [
                 0.0
             ]
         },
-        "properties.value.x-observed-maximum": {
-            "type": "integer",
-            "x-observed-minimum": 8728.0,
-            "x-observed-maximum": 8728.0,
-            "examples": [
+        &quot;properties.value.x-observed-maximum&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;x-observed-minimum&quot;: 8728.0,
+            &quot;x-observed-maximum&quot;: 8728.0,
+            &quot;examples&quot;: [
                 8728.0
             ]
         },
-        "properties.value.examples": {
-            "type": "array",
-            "items": {
-                "type": "integer"
+        &quot;properties.value.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: [
+                    &quot;string&quot;,
+                    &quot;integer&quot;
+                ]
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
                     0,
                     82,
-                    57
+                    57,
+                    &quot;0&quot;,
+                    &quot;82&quot;,
+                    &quot;57&quot;
                 ]
             ]
         },
-        "properties.unit.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.unit.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "count"
-                ]
-            ]
-        },
-        "properties.source.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.source.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "INRB-UMIE",
-                    "SitRep MVEBDB N\u00b0083, 06/08/2026",
-                    "SitRep MVEBDB N\u00b0085, 07/08/2026"
-                ]
-            ]
-        },
-        "properties.source_url.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.source_url.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv",
-                    "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv",
-                    "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv"
-                ]
-            ]
-        },
-        "properties.source_indicator_name.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.indicator_label.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.reporting_period_start.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.reporting_period_end.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.last_updated.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.data_quality_flag.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.data_quality_flag.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "manual"
-                ]
-            ]
-        },
-        "properties.notes.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "string",
-                    "null"
-                ]
-            ]
-        },
-        "properties.notes.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                    "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                    "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."
-                ]
-            ]
-        },
-        "properties.@id.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.@id.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "ER-000001",
-                    "ER-000002",
-                    "ER-000003"
-                ]
-            ]
-        },
-        "properties.country_iso3.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.country_iso3.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "COD"
-                ]
-            ]
-        },
-        "properties.admin_level.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.admin_level.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "health_zone",
-                    "national"
-                ]
-            ]
-        },
-        "properties.location.type": {
-            "type": "string",
-            "examples": [
-                "object"
-            ]
-        },
-        "properties.location.properties.location_name.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.location.properties.name_as_reported.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.location.properties.location_code.type": {
-            "type": "string",
-            "examples": [
-                "object"
-            ]
-        },
-        "properties.location.properties.location_code.properties.@type.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.location.properties.location_code.properties.#text.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.location.properties.province.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.location.properties.population_estimate.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.location.examples": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "location_name": {
-                        "type": "string"
-                    },
-                    "name_as_reported": {
-                        "type": "string"
-                    },
-                    "location_code": {
-                        "type": "object",
-                        "properties": {
-                            "@type": {
-                                "type": "string"
-                            },
-                            "#text": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "province": {
-                        "type": "string"
-                    },
-                    "population_estimate": {
-                        "type": "string"
-                    }
-                }
-            },
-            "examples": [
-                [
-                    {
-                        "location_name": "Mongbalu",
-                        "name_as_reported": "Mongbwalu",
-                        "location_code": {
-                            "@type": "pcode",
-                            "#text": "CD540510"
-                        },
-                        "province": "Ituri",
-                        "population_estimate": "78500"
-                    },
-                    {
-                        "location_name": "R\u00e9publique d\u00e9mocratique du Congo",
-                        "name_as_reported": "DRC",
-                        "location_code": {
-                            "@type": "iso3",
-                            "#text": "COD"
-                        },
-                        "province": "National",
-                        "population_estimate": "181500"
-                    },
-                    {
-                        "location_name": "Bunia",
-                        "name_as_reported": "Bunia",
-                        "location_code": {
-                            "@type": "pcode",
-                            "#text": "CD540202"
-                        },
-                        "province": "Ituri",
-                        "population_estimate": "275000"
-                    }
-                ]
-            ]
-        },
-        "properties.report_date.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.report_date.format": {
-            "type": "string",
-            "examples": [
-                "date"
-            ]
-        },
-        "properties.report_date.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "14/05/2026",
-                    "15/05/2026",
-                    "17/05/2026"
-                ]
-            ]
-        },
-        "properties.indicator.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.indicator.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "examples": [
-                [
-                    "case",
-                    "contact_traced",
-                    "death"
-                ]
-            ]
-        },
-        "properties.case_count.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.case_count.x-numeric-string": {
-            "type": "boolean",
-            "x-observed-minimum": 1.0,
-            "x-observed-maximum": 1.0,
-            "examples": [
+        &quot;properties.value.x-numeric-string&quot;: {
+            &quot;type&quot;: &quot;boolean&quot;,
+            &quot;x-observed-minimum&quot;: 1.0,
+            &quot;x-observed-maximum&quot;: 1.0,
+            &quot;examples&quot;: [
                 true
             ]
         },
-        "properties.case_count.x-potential-type": {
-            "type": "string",
-            "examples": [
-                "integer"
+        &quot;properties.value.x-potential-type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;integer&quot;
             ]
         },
-        "properties.case_count.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.unit.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.unit.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "0",
-                    "82",
-                    "57"
+                    &quot;count&quot;
                 ]
             ]
         },
-        "properties.alert_level.type": {
-            "type": "string",
-            "examples": [
-                "string"
+        &quot;properties.source.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
             ]
         },
-        "properties.alert_level.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.source.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "low",
-                    "high",
-                    "medium"
+                    &quot;INRB-UMIE&quot;,
+                    &quot;SitRep MVEBDB N\u00b0083, 06/08/2026&quot;,
+                    &quot;SitRep MVEBDB N\u00b0085, 07/08/2026&quot;
                 ]
             ]
         },
-        "properties.data_provider.type": {
-            "type": "string",
-            "examples": [
-                "string"
-            ]
-        },
-        "properties.data_provider.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.source_url.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "INRB-UMIE",
-                    "SitRep MVEBDB N\u00b0083, 06/08/2026",
-                    "SitRep MVEBDB N\u00b0085, 07/08/2026"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.source_link.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.source_url.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "string",
-                    "null"
+                    &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv&quot;,
+                    &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv&quot;,
+                    &quot;https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv&quot;
                 ]
             ]
         },
-        "properties.source_link.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.source_indicator_name.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv",
-                    "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_contacts_traced__daily.csv",
-                    "https://raw.githubusercontent.com/INRB-UMIE/BDBV2026-Data/main/data/insp_sitrep/processed/insp_sitrep__cumulative_suspected_deaths__daily.csv"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.quality_check.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.indicator_label.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "string",
-                    "null"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.quality_check.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.reporting_period_start.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "manually transcribed"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.comment.type": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.reporting_period_end.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "string",
-                    "null"
+                    &quot;string&quot;,
+                    &quot;null&quot;
                 ]
             ]
         },
-        "properties.comment.examples": {
-            "type": "array",
-            "items": {
-                "type": "string"
+        &quot;properties.last_updated.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
             },
-            "examples": [
+            &quot;examples&quot;: [
                 [
-                    "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                    "Missing from INRB-UMIE's national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.",
-                    "Missing from INRB-UMIE's national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF."
+                    &quot;string&quot;,
+                    &quot;null&quot;
+                ]
+            ]
+        },
+        &quot;properties.data_quality_flag.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;string&quot;,
+                    &quot;null&quot;
+                ]
+            ]
+        },
+        &quot;properties.data_quality_flag.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;manual&quot;,
+                    &quot;manually transcribed&quot;
+                ]
+            ]
+        },
+        &quot;properties.notes.type&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;string&quot;,
+                    &quot;null&quot;
+                ]
+            ]
+        },
+        &quot;properties.notes.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;,
+                    &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_deaths file (no 2026-08-06 row); transcribed from government SitRep PDF.&quot;,
+                    &quot;Missing from INRB-UMIE&#x27;s national_cumulative_confirmed_cases file (no 2026-08-07 row); transcribed from government SitRep PDF.&quot;
+                ]
+            ]
+        },
+        &quot;properties.@id.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.@id.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;ER-000001&quot;,
+                    &quot;ER-000002&quot;,
+                    &quot;ER-000003&quot;
+                ]
+            ]
+        },
+        &quot;properties.location.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;object&quot;
+            ]
+        },
+        &quot;properties.location.properties.location_name.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.location.properties.name_as_reported.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.location.properties.location_code.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;object&quot;
+            ]
+        },
+        &quot;properties.location.properties.location_code.properties.@type.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.location.properties.location_code.properties.#text.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.location.properties.province.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.location.properties.population_estimate.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.location.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;location_name&quot;: {
+                        &quot;type&quot;: &quot;string&quot;
+                    },
+                    &quot;name_as_reported&quot;: {
+                        &quot;type&quot;: &quot;string&quot;
+                    },
+                    &quot;location_code&quot;: {
+                        &quot;type&quot;: &quot;object&quot;,
+                        &quot;properties&quot;: {
+                            &quot;@type&quot;: {
+                                &quot;type&quot;: &quot;string&quot;
+                            },
+                            &quot;#text&quot;: {
+                                &quot;type&quot;: &quot;string&quot;
+                            }
+                        }
+                    },
+                    &quot;province&quot;: {
+                        &quot;type&quot;: &quot;string&quot;
+                    },
+                    &quot;population_estimate&quot;: {
+                        &quot;type&quot;: &quot;string&quot;
+                    }
+                }
+            },
+            &quot;examples&quot;: [
+                [
+                    {
+                        &quot;location_name&quot;: &quot;Mongbalu&quot;,
+                        &quot;name_as_reported&quot;: &quot;Mongbwalu&quot;,
+                        &quot;location_code&quot;: {
+                            &quot;@type&quot;: &quot;pcode&quot;,
+                            &quot;#text&quot;: &quot;CD540510&quot;
+                        },
+                        &quot;province&quot;: &quot;Ituri&quot;,
+                        &quot;population_estimate&quot;: &quot;78500&quot;
+                    },
+                    {
+                        &quot;location_name&quot;: &quot;R\u00e9publique d\u00e9mocratique du Congo&quot;,
+                        &quot;name_as_reported&quot;: &quot;DRC&quot;,
+                        &quot;location_code&quot;: {
+                            &quot;@type&quot;: &quot;iso3&quot;,
+                            &quot;#text&quot;: &quot;COD&quot;
+                        },
+                        &quot;province&quot;: &quot;National&quot;,
+                        &quot;population_estimate&quot;: &quot;181500&quot;
+                    },
+                    {
+                        &quot;location_name&quot;: &quot;Bunia&quot;,
+                        &quot;name_as_reported&quot;: &quot;Bunia&quot;,
+                        &quot;location_code&quot;: {
+                            &quot;@type&quot;: &quot;pcode&quot;,
+                            &quot;#text&quot;: &quot;CD540202&quot;
+                        },
+                        &quot;province&quot;: &quot;Ituri&quot;,
+                        &quot;population_estimate&quot;: &quot;275000&quot;
+                    }
+                ]
+            ]
+        },
+        &quot;properties.alert_level.type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;examples&quot;: [
+                &quot;string&quot;
+            ]
+        },
+        &quot;properties.alert_level.examples&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;examples&quot;: [
+                [
+                    &quot;low&quot;,
+                    &quot;high&quot;,
+                    &quot;medium&quot;
                 ]
             ]
         }
     },
-    "required": [
-        "$schema",
-        "type",
-        "required",
-        "properties.location_country.type",
-        "properties.location_country.examples",
-        "properties.location_level.type",
-        "properties.location_level.x-observed-minimum",
-        "properties.location_level.x-observed-maximum",
-        "properties.location_level.examples",
-        "properties.location_name.type",
-        "properties.location_name.examples",
-        "properties.location_name_source.type",
-        "properties.location_name_source.examples",
-        "properties.location_code.type",
-        "properties.location_code.examples",
-        "properties.location_code_type.type",
-        "properties.location_code_type.examples",
-        "properties.reference_date.type",
-        "properties.reference_date.format",
-        "properties.reference_date.examples",
-        "properties.measure.type",
-        "properties.measure.examples",
-        "properties.case_classification.type",
-        "properties.case_classification.examples",
-        "properties.time_period.type",
-        "properties.time_period.examples",
-        "properties.value.type",
-        "properties.value.x-observed-minimum",
-        "properties.value.x-observed-maximum",
-        "properties.value.examples",
-        "properties.unit.type",
-        "properties.unit.examples",
-        "properties.source.type",
-        "properties.source.examples",
-        "properties.source_url.type",
-        "properties.source_url.examples",
-        "properties.source_indicator_name.type",
-        "properties.indicator_label.type",
-        "properties.reporting_period_start.type",
-        "properties.reporting_period_end.type",
-        "properties.last_updated.type",
-        "properties.data_quality_flag.type",
-        "properties.data_quality_flag.examples",
-        "properties.notes.type",
-        "properties.notes.examples",
-        "properties.@id.type",
-        "properties.@id.examples",
-        "properties.country_iso3.type",
-        "properties.country_iso3.examples",
-        "properties.admin_level.type",
-        "properties.admin_level.examples",
-        "properties.location.type",
-        "properties.location.properties.location_name.type",
-        "properties.location.properties.name_as_reported.type",
-        "properties.location.properties.location_code.type",
-        "properties.location.properties.location_code.properties.@type.type",
-        "properties.location.properties.location_code.properties.#text.type",
-        "properties.location.properties.province.type",
-        "properties.location.properties.population_estimate.type",
-        "properties.location.examples",
-        "properties.report_date.type",
-        "properties.report_date.format",
-        "properties.report_date.examples",
-        "properties.indicator.type",
-        "properties.indicator.examples",
-        "properties.case_count.type",
-        "properties.case_count.x-numeric-string",
-        "properties.case_count.x-potential-type",
-        "properties.case_count.examples",
-        "properties.alert_level.type",
-        "properties.alert_level.examples",
-        "properties.data_provider.type",
-        "properties.data_provider.examples",
-        "properties.source_link.type",
-        "properties.source_link.examples",
-        "properties.quality_check.type",
-        "properties.quality_check.examples",
-        "properties.comment.type",
-        "properties.comment.examples"
+    &quot;required&quot;: [
+        &quot;$schema&quot;,
+        &quot;type&quot;,
+        &quot;required&quot;,
+        &quot;properties.location_country.type&quot;,
+        &quot;properties.location_country.examples&quot;,
+        &quot;properties.location_level.type&quot;,
+        &quot;properties.location_level.x-observed-minimum&quot;,
+        &quot;properties.location_level.x-observed-maximum&quot;,
+        &quot;properties.location_level.examples&quot;,
+        &quot;properties.location_name.type&quot;,
+        &quot;properties.location_name.examples&quot;,
+        &quot;properties.location_name_source.type&quot;,
+        &quot;properties.location_name_source.examples&quot;,
+        &quot;properties.location_code.type&quot;,
+        &quot;properties.location_code.examples&quot;,
+        &quot;properties.location_code_type.type&quot;,
+        &quot;properties.location_code_type.examples&quot;,
+        &quot;properties.reference_date.type&quot;,
+        &quot;properties.reference_date.format&quot;,
+        &quot;properties.reference_date.examples&quot;,
+        &quot;properties.measure.type&quot;,
+        &quot;properties.measure.examples&quot;,
+        &quot;properties.case_classification.type&quot;,
+        &quot;properties.case_classification.examples&quot;,
+        &quot;properties.time_period.type&quot;,
+        &quot;properties.time_period.examples&quot;,
+        &quot;properties.value.type&quot;,
+        &quot;properties.value.x-observed-minimum&quot;,
+        &quot;properties.value.x-observed-maximum&quot;,
+        &quot;properties.value.examples&quot;,
+        &quot;properties.value.x-numeric-string&quot;,
+        &quot;properties.value.x-potential-type&quot;,
+        &quot;properties.unit.type&quot;,
+        &quot;properties.unit.examples&quot;,
+        &quot;properties.source.type&quot;,
+        &quot;properties.source.examples&quot;,
+        &quot;properties.source_url.type&quot;,
+        &quot;properties.source_url.examples&quot;,
+        &quot;properties.source_indicator_name.type&quot;,
+        &quot;properties.indicator_label.type&quot;,
+        &quot;properties.reporting_period_start.type&quot;,
+        &quot;properties.reporting_period_end.type&quot;,
+        &quot;properties.last_updated.type&quot;,
+        &quot;properties.data_quality_flag.type&quot;,
+        &quot;properties.data_quality_flag.examples&quot;,
+        &quot;properties.notes.type&quot;,
+        &quot;properties.notes.examples&quot;,
+        &quot;properties.@id.type&quot;,
+        &quot;properties.@id.examples&quot;,
+        &quot;properties.location.type&quot;,
+        &quot;properties.location.properties.location_name.type&quot;,
+        &quot;properties.location.properties.name_as_reported.type&quot;,
+        &quot;properties.location.properties.location_code.type&quot;,
+        &quot;properties.location.properties.location_code.properties.@type.type&quot;,
+        &quot;properties.location.properties.location_code.properties.#text.type&quot;,
+        &quot;properties.location.properties.province.type&quot;,
+        &quot;properties.location.properties.population_estimate.type&quot;,
+        &quot;properties.location.examples&quot;,
+        &quot;properties.alert_level.type&quot;,
+        &quot;properties.alert_level.examples&quot;
     ]
 }</pre>
         </div>
