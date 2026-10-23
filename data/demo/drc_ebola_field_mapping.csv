@@ -1,0 +1,10 @@
+schema1_field,schema2_field
+location_country,country_iso3
+location_level,admin_level
+reference_date,report_date
+measure,indicator
+value,case_count
+source,data_provider
+source_url,source_link
+data_quality_flag,quality_check
+notes,comment

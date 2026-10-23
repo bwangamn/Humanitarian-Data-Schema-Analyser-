@@ -1,6 +1,6 @@
 # Humanitarian Data Schema Analyzer
 
-[![PyPI Version](https://img.shields.io/badge/pypi-v-blue.svg)](https://pypi.org/project/humanitarian-data-schema-analyzer/)
+[![PyPI Version](https://img.shields.io/pypi/v/humanitarian-data-schema-analyzer.svg)](https://pypi.org/project/humanitarian-data-schema-analyzer/)
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -128,13 +128,21 @@ Analysis complete! Report saved to: report_hxl.html
 
 ## 10. Unify Two JSON Schemas
 
-`hds-analyzer unify` combines the `properties` and `required` arrays from two JSON Schema Draft 2020-12 files. It writes the result to the current working directory using both input stems; for example, `drc_schema.json` and `mali_schema.json` produce `drc_schema_mali_schema_unified.json`.
+`hds-analyzer unify` combines two JSON Schema Draft 2020-12 files. Fields are merged only when their names are identical, unless a mapping file names the fields that should be treated as the same. It writes the result to the current working directory using both input stems; for example, `drc_schema.json` and `mali_schema.json` produce `drc_schema_mali_schema_unified.json`.
 
 ```bash
 hds-analyzer unify path/to/drc_schema.json path/to/mali_schema.json
 ```
 
 Fields found in only one input are copied to the unified schema. For fields with the same name and type, one property is retained and their `examples` arrays are combined with duplicates removed. If fields have the same name but different types, the command prints a warning and writes both types as a JSON Schema type array, such as `"type": ["integer", "string"]`.
+
+The merged `required` list contains only the fields required by both schemas, so a record that is valid under either input schema is not rejected for lacking a field the other schema requires.
+
+To merge fields that have different names (for example `age` and `child_age`), pass a two-column CSV with `--mapping` (`-m`). Each row is `schema1_field,schema2_field`; a header row with those names is optional:
+
+```bash
+hds-analyzer unify schema1.json schema2.json --mapping field_mapping.csv
+```
 
 ## 11. Supported JSON Schema Output
 The engine generates validated Draft 2020-12 JSON Schema definitions:

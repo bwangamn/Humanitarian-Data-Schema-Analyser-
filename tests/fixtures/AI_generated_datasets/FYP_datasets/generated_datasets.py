@@ -2,6 +2,9 @@ import csv
 import json
 import os
 import random
+
+SEED = 2026  # fixed seed so the benchmark files can be regenerated identically
+random.seed(SEED)
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 import pandas as pd

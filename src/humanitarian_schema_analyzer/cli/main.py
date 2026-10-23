@@ -6,7 +6,7 @@ from typing import Any, Dict, Optional
 from ..parsers.factory import ParserFactory
 from ..profiling.profiler import DataProfiler
 from ..schema.schema_builder import SchemaBuilder
-from ..schema.unifier import unify_schemas
+from ..schema.unifier import load_field_mapping, unify_schemas
 from ..reports.html_report import HTMLReportGenerator
 
 app = typer.Typer(
@@ -95,12 +95,19 @@ def _load_schema(path: Path) -> Dict[str, Any]:
 def unify(
     schema1_path: Path = typer.Argument(..., help="Path to the first JSON Schema file."),
     schema2_path: Path = typer.Argument(..., help="Path to the second JSON Schema file."),
+    mapping: Optional[Path] = typer.Option(
+        None,
+        "--mapping",
+        "-m",
+        help="CSV file with two columns (first-schema field, second-schema field) naming fields to merge.",
+    ),
 ) -> None:
     """Merge two JSON Schema Draft 2020-12 files into one unified schema."""
     try:
         schema1 = _load_schema(schema1_path)
         schema2 = _load_schema(schema2_path)
-        unified_schema, warnings = unify_schemas(schema1, schema2)
+        field_mapping = load_field_mapping(mapping) if mapping else None
+        unified_schema, warnings = unify_schemas(schema1, schema2, field_mapping)
 
         output_path = Path.cwd() / f"{schema1_path.stem}_{schema2_path.stem}_unified.json"
         with output_path.open("w", encoding="utf-8") as output_file:

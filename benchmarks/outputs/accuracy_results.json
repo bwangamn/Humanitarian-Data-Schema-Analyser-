@@ -1,5 +1,5 @@
 {
-    "dataset": "drc_ebola_cases_consolidated_shema.csv",
+    "dataset": "drc_ebola_cases_consolidated_v0.2.2.csv",
     "fields_correct": 21,
     "fields_total": 21,
     "A_f": 1.0,
